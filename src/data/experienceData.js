@@ -1,6 +1,6 @@
 import logoUnpad from '../assets/img/logo unpad.jpg';
 import logoTI from '../assets/img/logo TI.jpg';
-import logoSundahub from '../assets/img/logo Sundahub.jpg';
+import logoSundahub from '../assets/img/Logo Sundahub.jpg';
 
 export const experienceData = [
   {
