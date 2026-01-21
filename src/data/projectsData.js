@@ -1,6 +1,6 @@
 import eegImage from '../assets/img/EEG.png';
 import robotImage from '../assets/img/robot.png';
-import produkImage from '../assets/img/produk.png';
+import produkImage from '../assets/img/Produk.png';
 import dataniagaImage from '../assets/img/dataNiaga.png';
 import fmcgImage from '../assets/img/fmcg.png';
 
