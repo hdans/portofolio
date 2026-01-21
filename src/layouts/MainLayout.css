@@ -1,0 +1,134 @@
+.main-layout {
+  position: relative;
+}
+
+.main-content {
+  position: relative;
+  z-index: 1;
+}
+
+.footer {
+  padding: 6rem 4rem;
+  background-color: var(--color-black, #1a1a1a);
+  color: var(--color-white, #ffffff);
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-accent, #c9a962), transparent);
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  text-align: center;
+}
+
+.footer-brand {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-white, #ffffff);
+  letter-spacing: -0.02em;
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.footer-nav a {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--color-light-gray, #a0a0a0);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: none !important;
+}
+
+.footer-nav a:hover {
+  color: var(--color-accent, #c9a962);
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--color-charcoal, #3d3d3d);
+  background-color: transparent;
+  color: var(--color-light-gray, #a0a0a0);
+  transition: all 0.3s ease;
+  cursor: none !important;
+}
+
+.social-links a:hover {
+  border-color: var(--color-accent, #c9a962);
+  background-color: var(--color-accent, #c9a962);
+  color: var(--color-black, #1a1a1a);
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-charcoal, #3d3d3d);
+  width: 100%;
+}
+
+.copyright {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--color-gray, #6b6b6b);
+}
+
+.made-with {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--color-gray, #6b6b6b);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.made-with svg {
+  color: var(--color-accent, #c9a962);
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 4rem 1.5rem;
+  }
+
+  .footer-nav {
+    gap: 1.5rem;
+  }
+
+  .social-links a {
+    width: 40px;
+    height: 40px;
+  }
+}

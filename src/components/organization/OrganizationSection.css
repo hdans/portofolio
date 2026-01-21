@@ -1,0 +1,577 @@
+.organization-section {
+  min-height: 100vh;
+  padding: 10rem 4rem;
+  background-color: var(--color-dark, #2d2d2d);
+  color: var(--color-white, #ffffff);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Grid pattern background */
+.organization-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(201, 169, 98, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201, 169, 98, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+}
+
+/* Decorative gradient orbs */
+.organization-section::after {
+  content: '';
+  position: absolute;
+  top: 20%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(201, 169, 98, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.organization-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Decorative orb left side */
+.organization-container::before {
+  content: '';
+  position: absolute;
+  bottom: 10%;
+  left: -15%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(201, 169, 98, 0.06) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.section-number {
+  font-family: var(--font-heading);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-accent, #c9a962);
+  letter-spacing: 0.1em;
+}
+
+.organization-section .section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 500;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.section-line {
+  flex: 1;
+  height: 1px;
+  background-color: var(--color-charcoal, #3d3d3d);
+  max-width: 200px;
+}
+
+.section-header-wrapper {
+  margin-bottom: 4rem;
+}
+
+.section-header-wrapper .section-header {
+  margin-bottom: 0.75rem;
+}
+
+.section-hint {
+  font-size: 0.8rem;
+  color: var(--color-accent, #c9a962);
+  opacity: 0.7;
+  letter-spacing: 0.05em;
+}
+
+.organization-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem 5rem;
+  padding: 2rem 0;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: center;
+  position: relative;
+}
+
+/* Hide the old pseudo-element connectors */
+.organization-grid::before {
+  display: none;
+}
+
+/* Container for card + connectors */
+.org-card-container {
+  position: relative;
+  display: flex;
+}
+
+/* Left cards align right, right cards align left */
+.org-card-container:nth-child(odd) {
+  justify-content: flex-end;
+}
+
+.org-card-container:nth-child(even) {
+  justify-content: flex-start;
+}
+
+/* Connector base styles */
+.connector {
+  position: absolute;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.6;
+}
+
+/* Dotted line pattern */
+.connector::before {
+  content: '';
+  position: absolute;
+  background-color: var(--color-accent, #c9a962);
+  border-radius: 50%;
+  opacity: 0.8;
+}
+
+/* ========== HORIZONTAL CONNECTORS ========== */
+
+/* Horizontal connector to the RIGHT (from left card) */
+.connector-horizontal-right {
+  top: 50%;
+  left: 100%;
+  width: calc(5rem + 100px);
+  height: 4px;
+  transform: translateY(-50%);  
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--color-accent, #c9a962) 0px,
+    var(--color-accent, #c9a962) 8px,
+    transparent 8px,
+    transparent 16px
+  );
+}
+
+.connector-horizontal-right::before {
+  display: none;
+}
+
+/* Horizontal connector to the LEFT (from right card) */
+.connector-horizontal-left {
+  top: 50%;
+  right: 100%;
+  width: calc(5rem + 100px);
+  height: 4px;
+  transform: translateY(-50%);
+  background-image: repeating-linear-gradient(
+    to left,
+    var(--color-accent, #c9a962) 0px,
+    var(--color-accent, #c9a962) 8px,
+    transparent 8px,
+    transparent 16px
+  );
+}
+
+.connector-horizontal-left::before {
+  display: none;
+  width: 14px;
+  height: 14px;
+}
+
+/* ========== VERTICAL CONNECTORS ========== */
+
+/* Vertical connector from RIGHT side (even rows) - centered on photo */
+.connector-vertical-right {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 3rem;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    var(--color-accent, #c9a962) 0px,
+    var(--color-accent, #c9a962) 8px,
+    transparent 8px,
+    transparent 16px
+  );
+}
+
+.connector-vertical-right::before {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+}
+
+/* Vertical connector from LEFT side (odd rows) - centered on photo */
+.connector-vertical-left {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 3rem;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    var(--color-accent, #c9a962) 0px,
+    var(--color-accent, #c9a962) 8px,
+    transparent 8px,
+    transparent 16px
+  );
+}
+
+/* Mobile vertical connector - hidden on desktop, shown on mobile */
+.connector-mobile-vertical {
+  display: none;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4rem;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    var(--color-accent, #c9a962) 0px,
+    var(--color-accent, #c9a962) 8px,
+    transparent 8px,
+    transparent 16px
+  );
+}
+
+.connector-vertical-left::before {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+}
+
+.organization-card-wrapper {
+  cursor: none !important;
+  perspective: 1000px;
+  display: flex;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+/* Remove old pseudo-element connectors */
+.organization-card-wrapper:nth-child(odd)::after,
+.organization-card-wrapper:nth-child(even)::before,
+.organization-card-wrapper:nth-child(odd)::before {
+  display: none;
+}
+
+/* Left cards (odd) align to right, right cards (even) align to left */
+.organization-card-wrapper:nth-child(odd) {
+  justify-content: flex-end;
+}
+
+.organization-card-wrapper:nth-child(even) {
+  justify-content: flex-start;
+}
+
+/* Size variations: big and small - both bigger now */
+.organization-card-wrapper.card-big .organization-card {
+  max-width: 480px;
+}
+
+.organization-card-wrapper.card-small .organization-card {
+  max-width: 400px;
+}
+
+.organization-card {
+  position: relative;
+  display: inline-block;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid var(--color-charcoal, #3d3d3d);
+  background: var(--color-charcoal, #3d3d3d);
+  z-index: 10;
+}
+
+.organization-card:hover {
+  transform: rotate(0deg) scale(1.05) translateY(-8px) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  border-color: var(--color-accent, #c9a962);
+  z-index: 10;
+}
+
+.org-image {
+  display: block;
+  line-height: 0;
+}
+
+.org-image-img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+
+.org-image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, var(--color-charcoal, #3d3d3d) 0%, var(--color-black, #1a1a1a) 100%);
+  color: var(--color-accent, #c9a962);
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.org-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 26, 26, 0.95);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  text-align: center;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.org-position {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-accent, #c9a962);
+  margin-bottom: 0.5rem;
+}
+
+.org-name {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--color-light-gray, #a0a0a0);
+  line-height: 1.4;
+}
+
+/* Modal Content */
+.org-modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.org-modal-image {
+  width: 100%;
+  background-color: var(--color-off-white, #f0f0f0);
+  border-radius: 12px;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.modal-org-img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.modal-org-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, var(--color-dark, #2d2d2d) 0%, var(--color-black, #1a1a1a) 100%);
+  color: var(--color-accent, #c9a962);
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.modal-position {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: var(--color-black, #1a1a1a);
+  line-height: 1.3;
+}
+
+.modal-organization {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  color: var(--color-accent-dark, #a68b4b);
+  font-weight: 500;
+}
+
+.modal-duration {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--color-gray, #6b6b6b);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.modal-duration::before {
+  content: '';
+  display: block;
+  width: 16px;
+  height: 2px;
+  background-color: var(--color-accent, #c9a962);
+}
+
+.modal-description {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--color-dark, #2d2d2d);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .organization-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem 3rem;
+    max-width: 800px;
+  }
+
+  .organization-card-wrapper.card-big .organization-card {
+    max-width: 380px;
+  }
+
+  .organization-card-wrapper.card-small .organization-card {
+    max-width: 320px;
+  }
+
+  .connector-horizontal-right,
+  .connector-horizontal-left {
+    width: 3rem;
+  }
+  
+  .connector-horizontal-right {
+    right: -3rem;
+  }
+  
+  .connector-horizontal-left {
+    left: -3rem;
+  }
+
+  .connector-vertical-right,
+  .connector-vertical-left {
+    bottom: -2.5rem;
+    height: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .organization-section {
+    padding: 6rem 1.5rem;
+  }
+
+  .organization-section::after {
+    display: none;
+  }
+
+  .organization-container::before {
+    display: none;
+  }
+
+  .organization-grid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    max-width: 400px;
+  }
+
+  /* Hide desktop connectors on tablet/mobile */
+  .connector-horizontal-right,
+  .connector-horizontal-left,
+  .connector-vertical-right,
+  .connector-vertical-left {
+    display: none;
+  }
+
+  /* Show mobile vertical connector */
+  .connector-mobile-vertical {
+    display: block;
+  }
+
+  .org-card-container:nth-child(odd),
+  .org-card-container:nth-child(even) {
+    justify-content: center;
+  }
+
+  .organization-card-wrapper:nth-child(odd),
+  .organization-card-wrapper:nth-child(even) {
+    justify-content: center;
+  }
+
+  .organization-card-wrapper.card-big .organization-card,
+  .organization-card-wrapper.card-small .organization-card {
+    max-width: 380px;
+  }
+
+  .org-image-placeholder {
+    font-size: 1.5rem;
+  }
+
+  .section-header {
+    flex-wrap: wrap;
+  }
+
+  .section-line {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .organization-section {
+    padding: 5rem 1rem;
+  }
+
+  .organization-grid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    max-width: 340px;
+  }
+
+  .connector-vertical-right,
+  .connector-vertical-left {
+    height: 4rem;
+  }
+
+  .organization-card-wrapper.card-big .organization-card,
+  .organization-card-wrapper.card-small .organization-card {
+    max-width: 320px;
+  }
+
+  .org-position {
+    font-size: 0.875rem;
+  }
+
+  .org-name {
+    font-size: 0.75rem;
+  }
+
+  .modal-position {
+    font-size: 1.5rem;
+  }
+}
