@@ -1,10 +1,24 @@
 import logoUnpad from '../assets/img/logo unpad.jpg';
 import logoTI from '../assets/img/logo TI.jpg';
 import logoSundahub from '../assets/img/Logo Sundahub.jpg';
+import logoFIF from '../assets/img/FIF.png';
 
 export const experienceData = [
   {
     id: 1,
+    institution: "PT Federal International Finance (FIFGROUP)",
+    role: "Data Analyst Intern",
+    duration: "Feb 2026 - Present",
+    logo: logoFIF,
+    description: `Data Analyst at IT Planning & Governance Department
+- Engineered SQL-based data extraction pipelines from Oracle systems to ensure reliable and structured datasets for analysis.
+- Conducted quantitative analysis and visualization using Python (Pandas, NumPy, Matplotlib) to identify performance patterns and operational bottlenecks.
+- Developed automated and interactive BI dashboards in Power BI to track IT KPIs and support executive-level reporting.
+- Collaborated cross-functionally with planning stakeholders to translate analytical findings into measurable operational improvements.
+`
+  },
+  {
+    id: 2,
     institution: "Rectorate, Padjadjaran University",
     role: "AI Engineer Intern",
     duration: "Aug 2025 - Dec 2025",
@@ -15,7 +29,7 @@ export const experienceData = [
 `
   },
   {
-    id: 2,
+    id: 3,
     institution: "Computer Science Department, Padjadjaran University",
     role: "Teaching Assistant",
     duration: "Jan 2025 - Dec 2025",
@@ -28,7 +42,7 @@ practices.
     `
   },
   {
-    id: 3,
+    id: 4,
     institution: "Sundahub",
     role: "Web Developer",
     duration: "Feb 2024 - Dec 2024",
