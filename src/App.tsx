@@ -12,7 +12,7 @@ function App() {
     <MainLayout>
       <HeroSection />
       <ProfileSection />
-      <ExperienceSection />o
+      <ExperienceSection />
       <AwardsSection />
       <OrganizationSection />
       <ProjectsSection />

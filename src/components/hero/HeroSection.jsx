@@ -4,16 +4,17 @@ import Modal from '../common/Modal';
 import TypeWriter from '../common/TypeWriter';
 import '../common/TypeWriter.css';
 import './HeroSection.css';
-import cvPdf from '../../assets/pdf/CV Danish Rahadian - Data Scientist Internhip.pdf';
+import cvPdf from '../../assets/pdf/Consulting CV - Danish Rahadian.pdf';
 
 const HeroSection = () => {
   const [isCvModalOpen, setIsCvModalOpen] = useState(false);
   
   const roles = [
-    'Data Scientist',
-    'Data Analyst',
-    'Machine Learning/AI Engineer',
-    'Full Stack Developer'
+    'Data Analyst & Scientist',
+    'Machine Learning & AI Engineer',
+    'Full Stack Developer',
+    'IT Audit',
+    'IT Consultant',
   ];
 
   const containerVariants = {
@@ -67,7 +68,7 @@ const HeroSection = () => {
         </motion.h1>
         
         <motion.p className="hero-subtitle" variants={itemVariants}>
-          Data Scientist, Data Analyst, ML/AI Engineer, & Automation crafting intelligent solutions through data-driven modeling and scalable systems.
+          Data Analyst & Scientist, ML & AI Engineer, Digital Solution & Automation crafting intelligent solutions through data-driven and scalable systems.
         </motion.p>
 
         <motion.div className="hero-cta-group" variants={itemVariants}>

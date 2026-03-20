@@ -10,9 +10,10 @@ export const skillsData = {
   
   frameworks: [
     "React",
+    "Node.js",
     "Next.js",
     "FastAPI",
-    "Flask"
+    "PostgreSQL",
   ],
   
   mlAi: [
@@ -29,7 +30,7 @@ export const skillsData = {
     "Excel",
     "PowerBI",
     "Arduino",
-    "MySQL",
+    "Oracle",
     "Pandas",
     "NumPy"
   ],
