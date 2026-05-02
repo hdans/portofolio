@@ -6,13 +6,8 @@ import './ProjectsSection.css';
 
 const ProjectsSection = () => {
   const [selectedProject, setSelectedProject] = useState(null);
-  const [filter, setFilter] = useState('All');
-
-  const categories = ['All', ...new Set(projectsData.map(p => p.category))];
-
-  const filteredProjects = filter === 'All' 
-    ? projectsData 
-    : projectsData.filter(p => p.category === filter);
+  const featuredProjects = projectsData.filter((project) => project.featured);
+  const regularProjects = projectsData.filter((project) => !project.featured);
 
   return (
     <section className="projects-section" id="projects">
@@ -25,36 +20,24 @@ const ProjectsSection = () => {
           </div>
         </ScrollReveal>
 
-        <ScrollReveal direction="up" delay={0.3}>
-          <div className="filter-tabs">
-            {categories.map((category) => (
-              <button
-                key={category}
-                className={`filter-tab ${filter === category ? 'active' : ''}`}
-                onClick={() => setFilter(category)}
-                data-cursor-hover
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-        </ScrollReveal>
-
-        <div className="projects-grid">
-          {filteredProjects.map((project, index) => (
-            <ScrollReveal key={project.id} direction="up" delay={0.1 * (index % 3)}>
-              <div 
-                className="project-card"
-                onClick={() => setSelectedProject(project)}
-                data-cursor-hover
-              >
+        {/* Featured Projects Section */}
+        {featuredProjects.length > 0 && (
+          <div className="featured-projects-wrapper">
+            <h3 className="featured-projects-title">Featured Projects</h3>
+            <div className="featured-projects-grid">
+              {featuredProjects.map((project, index) => (
+                <ScrollReveal key={project.id} direction="up" delay={0.1 * (index % 2)}>
+                  <div 
+                    className="project-card featured-card"
+                    onClick={() => setSelectedProject(project)}
+                    data-cursor-hover
+                  >
                 <div className="project-image">
                   {project.image ? (
                     <img src={project.image} alt={project.title} className="project-img" />
                   ) : (
                     <div className="project-image-placeholder" />
                   )}
-                  <div className="project-category-badge">{project.category}</div>
                   <div className="project-overlay">
                     <span className="view-details">View Details</span>
                   </div>
@@ -78,8 +61,56 @@ const ProjectsSection = () => {
                 </div>
               </div>
             </ScrollReveal>
-          ))}
-        </div>
+                ))}
+            </div>
+          </div>
+        )}
+
+        {/* Regular Projects Section */}
+        {regularProjects.length > 0 && (
+          <div className="regular-projects-wrapper">
+            <h3 className="regular-projects-title">More Projects</h3>
+            <div className="projects-grid">
+              {regularProjects.map((project, index) => (
+                <ScrollReveal key={project.id} direction="up" delay={0.1 * (index % 3)}>
+                  <div 
+                    className="project-card"
+                    onClick={() => setSelectedProject(project)}
+                    data-cursor-hover
+                  >
+                    <div className="project-image">
+                      {project.image ? (
+                        <img src={project.image} alt={project.title} className="project-img" />
+                      ) : (
+                        <div className="project-image-placeholder" />
+                      )}
+                      <div className="project-overlay">
+                        <span className="view-details">View Details</span>
+                      </div>
+                    </div>
+                    
+                    <div className="project-info">
+                      <div className="project-header">
+                        <h3 className="project-title">{project.title}</h3>
+                        <span className="project-year">{project.year}</span>
+                      </div>
+                      <p className="project-description">{project.description}</p>
+                      
+                      <div className="project-tech">
+                        {project.techStack.slice(0, 4).map((tech, idx) => (
+                          <span key={idx} className="tech-tag">{tech}</span>
+                        ))}
+                        {project.techStack.length > 4 && (
+                          <span className="tech-tag more">+{project.techStack.length - 4}</span>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
 
       <Modal 
@@ -94,7 +125,6 @@ const ProjectsSection = () => {
               ) : (
                 <div className="modal-image-placeholder" />
               )}
-              <div className="modal-category-badge">{selectedProject.category}</div>
             </div>
             
             <div className="modal-header">

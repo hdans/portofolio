@@ -3,12 +3,20 @@ import './Header.css';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isInHero, setIsInHero] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+
+      // Keep the menu visually integrated with hero until hero is mostly out of view.
+      const heroSection = document.querySelector('.hero-section');
+      if (heroSection) {
+        const heroBottom = heroSection.getBoundingClientRect().bottom;
+        setIsInHero(heroBottom > 140);
+      }
       
       // Detect active section
       const sections = ['about', 'experience', 'awards', 'organization', 'projects', 'contact'];
@@ -56,13 +64,23 @@ const Header = () => {
     { id: 'contact', label: 'Contact' },
   ];
 
+  const activeNavLabel = navItems.find((item) => item.id === activeSection)?.label || 'Home';
+
   return (
     <>
-      <header className={`header ${isScrolled ? 'header-scrolled' : ''}`}>
+      <header className={`header ${isInHero ? 'header-hero' : ''} ${isScrolled ? 'header-scrolled' : ''}`}>
         <div className="header-container">
-          <a href="#" className="header-logo" data-cursor-hover>
-            DR
+          <a href="#" className={`header-logo ${isInHero ? 'hero-mode' : ''}`} data-cursor-hover>
+            {isInHero ? (
+              <span className="explore-text">Menu</span>
+            ) : (
+              'DR'
+            )}
           </a>
+
+          <span className="header-current-label" aria-live="polite">
+            {activeNavLabel}
+          </span>
 
           {/* Desktop Navigation */}
           <nav className="header-nav">

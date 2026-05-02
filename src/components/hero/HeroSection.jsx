@@ -10,11 +10,9 @@ const HeroSection = () => {
   const [isCvModalOpen, setIsCvModalOpen] = useState(false);
   
   const roles = [
-    'Data Analyst & Scientist',
-    'Machine Learning & AI Engineer',
+    'IT Governance / Audit / Consulting',
+    'Data & Business Analyst',
     'Full Stack Developer',
-    'IT Audit',
-    'IT Consultant',
   ];
 
   const containerVariants = {
@@ -68,7 +66,7 @@ const HeroSection = () => {
         </motion.h1>
         
         <motion.p className="hero-subtitle" variants={itemVariants}>
-          Data Analyst & Scientist, ML & AI Engineer, Digital Solution & Automation crafting intelligent solutions through data-driven and scalable systems.
+          Focused on IT Governance, IT Audit, and IT Consulting, with supporting strengths in Data and Business Analysis as well as Full Stack Development.
         </motion.p>
 
         <motion.div className="hero-cta-group" variants={itemVariants}>
@@ -81,7 +79,7 @@ const HeroSection = () => {
           <a href="#about" className="hero-cta hero-cta-secondary" data-cursor-hover>
             About Me
           </a>
-          <button 
+          {/* <button 
             className="hero-cta hero-cta-cv" 
             onClick={() => setIsCvModalOpen(true)}
             data-cursor-hover
@@ -94,7 +92,7 @@ const HeroSection = () => {
               <polyline points="10 9 9 9 8 9"/>
             </svg>
             View CV
-          </button>
+          </button> */}
         </motion.div>
       </motion.div>
       

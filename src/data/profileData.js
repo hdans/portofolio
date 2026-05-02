@@ -1,20 +1,19 @@
 export const profileData = {
   name: "Danish Rahadian",
   title: "Portfolio Danish Rahadian",
-  summary: `Informatics Engineering student at Padjadjaran University with 1+ years of hands-on experience in data, machine learning, AI, and digital projects. Experienced in building end-to-end solutions including data preprocessing, modeling, and evaluation across forecasting, anomaly detection, and classification tasks. Proven ability to work with large-scale datasets (13M+ records), deliver competitive results in national data competitions, and collaborate effectively in research and startup environments.`,
+  summary: `Informatics Engineering student at Padjadjaran University focused on IT Governance, IT Audit, and IT Consulting, with supporting strengths in Data and Business Analysis and Full Stack implementation. Experienced in building end-to-end analytical and digital solutions, from data preparation and insight generation to dashboarding and system delivery. Proven ability to work with large-scale datasets (13M+ records), collaborate across technical and business stakeholders, and deliver measurable outcomes in internship, competition, and organizational settings.`,
   
   roles: [
-    "Data Analyst & Scientist",
-    "Machine Learning & AI Engineer",
+    "IT Governance / Audit / Consulting",
+    "Data & Business Analyst",
     "Full Stack Developer",
-    "IT Consultant",
-    "IT Audit"
+    "Data Scientist & ML Engineer"
   ],
   
   education: {
     university: "Padjadjaran University",
     semester: 6,
     gpa: 3.96,
-    description: `Informatics Engineering student at Padjadjaran University with strong academic performance, actively balancing coursework with hands-on professional and research-based experience. Involved in research projects, data and AI competitions, and collaborative software development initiatives, with a focus on applying theoretical knowledge to real-world technical problems.`
+    description: `Informatics Engineering student at Padjadjaran University with strong academic performance, actively balancing coursework with internship, research, and project-based experience. Academic and practical exposure has strengthened my foundation in IT governance and audit-related thinking, supported by hands-on work in data and business analysis as well as full-stack solution development to solve real-world problems.`
   }
 };

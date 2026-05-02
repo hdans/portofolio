@@ -1,37 +1,38 @@
 export const skillsData = {
   languages: [
-    "Python",
     "SQL",
+    "Python",
     "JavaScript",
     "TypeScript",
     "Java",
     "C++"
   ],
-  
+
   frameworks: [
     "React",
     "Node.js",
     "Next.js",
     "FastAPI",
-    "PostgreSQL",
+    "PostgreSQL"
   ],
-  
+
   mlAi: [
+    "Data Analysis",
+    "Business Analysis",
+    "Dashboarding & KPI Monitoring",
     "Forecasting",
     "Anomaly Detection",
-    "NLP",
-    "Computer Vision",
-    "Deep Learning",
-    "Regression",
-    "Classification"
+    "Classification",
+    "Regression"
   ],
-  
+
   tools: [
+    "Power BI",
     "Excel",
-    "PowerBI",
-    "Arduino",
     "Oracle",
     "Pandas",
-    "NumPy"
+    "NumPy",
+    "IT Performance Reporting",
+    "Audit Analytics Support"
   ],
 };
