@@ -6,8 +6,9 @@ import './ProjectsSection.css';
 
 const ProjectsSection = () => {
   const [selectedProject, setSelectedProject] = useState(null);
-  const featuredProjects = projectsData.filter((project) => project.featured);
-  const regularProjects = projectsData.filter((project) => !project.featured);
+  const sortByIdDescending = (leftProject, rightProject) => rightProject.id - leftProject.id;
+  const featuredProjects = projectsData.filter((project) => project.featured).sort(sortByIdDescending);
+  const regularProjects = projectsData.filter((project) => !project.featured).sort(sortByIdDescending);
 
   return (
     <section className="projects-section" id="projects">

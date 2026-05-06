@@ -18,7 +18,7 @@ import { image } from 'framer-motion/client';
 
 export const projectsData = [
   {
-    id: 1,
+    id: 16,
     featured: true,
     title: "LangkahLegal: Integrated Legal Assistance Platform",
     category: "Product",
@@ -37,7 +37,7 @@ Tech stack includes RESTful API, JWT authentication, Supabase for transactional 
     year: "2026"
   },
   {
-    id: 2,
+    id: 15,
     featured: true,
     title: "DeQRypt: AI-Powered DeFi Payment & Portfolio System",
     category: "Product",
@@ -58,7 +58,7 @@ Tech stack includes RESTful API, JWT authentication, Supabase for transactional 
     year: "2026"
   },
   {
-    id: 3,
+    id: 14,
     featured: true,
     title: "Sobat Warung: AI-Powered Digital Record System for Urban Micro-Retail Economy",
     category: "Product & Data Systems",
@@ -79,7 +79,7 @@ The system not only improves warung owners' profit margins but also generates ac
     year: "2025"
   },
   {
-    id: 4,
+    id: 13,
     featured: true,
     title: "DataNiaga: Retail Decision Support System",
     category: "AI/Machine Learning",
@@ -98,7 +98,7 @@ The system integrates 30+ category-specific analytics dashboards feeding real-ti
     year: "2025"
   },
   {
-    id: 5,
+    id: 12,
     featured: false,
     title: "Predictive Insurance Claim Analytics using Gradient Boosting & Evolutionary Optimization",
     category: "Insurance Analytics",
@@ -156,43 +156,7 @@ Overall, this is a production-grade predictive system for insurance risk managem
     year: "2026"
   },
   {
-    id: 6,
-    featured: false,
-    title: "Smart Mobility: Contactless Wheelchair Navigation via Head Pose Estimation & Microcontroller Integration",
-    category: "Smart Mobility",
-    description: "Hands-free wheelchair navigation using head-pose estimation and Arduino integration.",
-    longDescription: `Dependence on physical joysticks creates an accessibility barrier for users with severe motor disabilities (e.g., quadriplegia). This project presents a low-cost, hands-free navigation system that uses only a standard webcam and AI processing to translate 3D head pose and facial cues into mechanical motion commands.
-
-As a Business Analyst / Systems Architect I defined IT governance and operational controls to ensure reliability and user safety:
-- Precision Calibration (Dynamic Calibration): A quick 'C' calibration allows users to set a personal neutral point, compensating for seating differences or minor disturbances and preventing small involuntary movements from triggering commands (20° threshold).
-- Latency Governance (Multithreading): Vision processing and serial communication are isolated into separate threads—Thread A handles camera and CV pipeline, Thread B secures the Serial channel to the Arduino—ensuring deterministic response times (baudrate 9600) between user input and motor actuation.
-- Safety Protocol (Smooth Braking): The Arduino implements a Smooth Braking algorithm that gradually reduces PWM signals when the user's face returns to neutral, preventing abrupt stops that could endanger the user.
-- Intuitive Command Mapping: PnP and Euler-angle transforms map head movements to navigation: pitch down/up (Pitch < -15°) = forward, yaw left/right (Yaw > 20° / < -20°) = turn/pivot, and mouth-open ratio used as a discrete command for reverse.
-
-The project demonstrates how ML and CV algorithms can be translated into a robust IoT hardware solution—secure, safe, and impactful for enhancing mobility independence.`,
-    techStack: ["Python", "MediaPipe (Face Mesh, 468 landmarks)", "OpenCV", "NumPy", "PnP Solver / Euler Angles", "C++ (Arduino)", "Arduino Uno", "L298N Motor Driver", "DC Motors", "Multithreading", "Serial Communication (USB)"],
-    image: robotImage,
-    year: "2025"
-  },
-  {
-    id: 7,
-    featured: false,
-    title: "Competitive Market Intelligence: Consumer Sentiment Analysis & Topic Modeling (Advan vs. Xiaomi)",
-    category: "Business Analytics",
-    description: "Converts consumer reviews into actionable QC and after-sales governance insights.",
-    longDescription: `Indonesia's consumer technology market is dominated by imports (e.g., Xiaomi), creating structural challenges for local brands such as Advan. This project objectively diagnoses those root causes by extracting and analyzing customer reviews from Tokopedia using Selenium and BeautifulSoup.
-
-The system implements a comprehensive NLP pipeline—cleaning, normalization, negation handling, stemming, and merging—to transform raw review text into structured features. Using supervised learning combined with semi-supervised annotation, models classify sentiment with accuracy >90% and quantify competitive realities: Xiaomi reports ~85.9% positive and ~5.1% negative reviews, while Advan records ~83% positive and ~6% negative.
-
-The strategic impact is realized through Latent Dirichlet Allocation (LDA) topic modeling, which exposes five critical failure modes driving negative sentiment for Advan: Dead on Arrival (DOA) products; product damage on delivery; substandard multimedia and physical quality; poor camera performance and general performance issues; and weaknesses in return & after-sales service.
-
-These findings provide empirically grounded signals for senior management, indicating weaknesses in Supply Chain Management and Quality Assurance governance, and revealing Service Level Agreement (SLA) gaps in incident handling and after-sales support. The analytics enable precise internal audits and targeted governance interventions to recover market share from global competitors.`,
-    techStack: ["Selenium", "BeautifulSoup", "Python", "Scikit-learn", "Semi-Supervised Annotation", "LDA", "Pandas", "NumPy", "Market Research Analytics"],
-    image: produkImage,
-    year: "2025"
-  },
-  {
-    id: 8,
+    id: 11,
     featured: false,
     title: "FMCG Personal Care Analytics: Data-Driven Innovation, Forecasting & Product Strategy Optimization",
     category: "Data Analytics & Business Intelligence",
@@ -221,147 +185,85 @@ This project showcases the role of a data-driven approach in bridging technical 
     year: "2025"
   },
   {
+    id: 10,
+    featured: false,
+    title: "Neuro AI: Multimodal Student Engagement Analytics System",
+    category: "AI/ML & EdTech",
+    description: "Real-time multimodal biometric system solving the 'Black Box Problem' in online education by integrating EEG, eye-tracking, and face recognition for objective engagement measurement.",
+    longDescription: `Neuro AI was designed to address a fundamental challenge in digital education: the inability to measure student engagement objectively. Conventional methods (questionnaires, post-tests) are subjective and fail to capture real-time cognitive and attentional dynamics. This research project integrates three complementary neuroimaging and computer vision modalities into a unified, low-cost system that operates in real-time on standard consumer hardware.
+
+Business Problem & IT Governance Context:
+The "Black Box Problem" in online learning represents a critical operational and quality assurance gap for EdTech platforms and institutions. Without objective engagement data, educators cannot:
+- Identify which video segments cause confusion or disengagement
+- Perform A/B testing on content delivery methods
+- Adapt learning materials in real-time to student cognitive state
+- Verify authentic student participation in remote assessments
+This system bridges that gap through a governance-aligned, data-driven approach.
+
+Technical Architecture & Integration Strategy:
+The system employs a 1-laptop integration model with three synchronized data streams:
+1. Neural Data (EEG): Muse S Headband (4-channel, 256Hz) captures raw brain activity; backend service (Python Flask) integrates Lab Streaming Layer (LSL) for Bluetooth data acquisition and real-time marker synchronization with video stimulus
+2. Visual Attention (Eye Tracking): Browser-based MediaPipe Face Mesh detects 474 facial landmarks in real-time (30 FPS); client-side processing extracts pupil position and gaze direction using geometric estimation (no specialized hardware required)
+3. Identity Verification (Face Recognition): OpenCV + face_recognition library enables multi-person face detection and encoding (128-dimensional embeddings); auto-capture and presence validation prevent fraudulent participation
+
+Key Insights & Information Generated:
+
+- Cognitive Load Classification: EEG preprocessing pipeline (Notch Filter 50Hz, Bandpass 0.5-45Hz, ICA artifact removal) extracts Power Spectral Density features; machine learning models distinguish between High Arousal/Focused vs Low Arousal/Bored states
+- Visual Attention Profile: Real-time gaze direction classification (Center/Left/Right/Up/Down) with smoothing buffer reveals attention distribution across video segments and identifies distraction triggers
+- Presence & Participation Validation: Face encoding comparison (Euclidean distance < 0.6 threshold) confirms student identity and active engagement with learning material
+- Temporal Engagement Dynamics: Time-series data (CSV format) maps engagement fluctuations across video duration, enabling segment-level quality assessment and content optimization
+
+Performance Metrics & System Excellence:
+
+Processing Performance:
+- Eye Tracking: 30 FPS real-time processing on webcam; negligible client-side latency
+- EEG Signal Quality: 256 Hz sampling with robust artifact removal achieving 48-51% accuracy (LOSO Leave-One-Subject-Out cross-validation) on 8 respondents
+- Multi-Modal Fusion: Time-locked synchronization across three asynchronous data sources (neural, visual, biometric)
+
+Operational Impact:
+- Eliminated need for $3000–5000+ professional eye-tracking systems (Tobii, Alea)
+- Cost of entry: consumer-grade webcam + Muse Headband ($250–400)
+- Deployment: Web-based (Next.js frontend + Flask backend) enables scalability across institutions
+
+Business & IT Governance Relevance:
+
+For Business Analysts:
+- Transforms subjective engagement into measurable, actionable data
+- Enables data-driven content A/B testing for content creators
+- Supports adaptive learning systems that auto-adjust difficulty based on cognitive load
+- Provides ROI validation for EdTech investments (video quality metrics linked to learning outcomes)
+
+For IT Governance & CIOs:
+- Data Privacy by Design: Implements face encoding anonymization; no raw biometric imagery retained
+- System Reliability: Real-time processing on single device eliminates network dependency
+- Scalability Path: Modular architecture allows deployment across multiple campuses or LMS integrations
+- Risk Mitigation: Multimodal fusion reduces single-modality false positives; EEG validates internal state, eye-tracking validates external focus, face recognition validates identity
+
+Key Findings & Research Contribution:
+
+1. Low-Cost Accessibility: Validated that consumer-grade hardware (webcam + affordable EEG) can replace laboratory-grade equipment, democratizing neuroscience-based education research
+2. Real-Time Feasibility: Demonstrated stable real-time processing of three heterogeneous data streams on a single laptop without significant latenency
+3. Subject Variability Challenge: Inter-individual EEG variability (highlighted in research roadmap) remains a key frontier; LOSO validation shows models generalize modestly but reliably across subjects
+4. Integration Complexity Success: Achieved precise time-locking between EEG acquisition (external device), video stimulus (web frontend), visual processing (browser), and face detection (webcam), a non-trivial orchestration challenge
+
+Strategic Impact for Educational Institutions:
+
+- Moves from reactive (post-hoc surveys) to proactive (real-time) engagement monitoring
+- Enables evidence-based instructional design decisions
+- Supports compliance requirements for online learning quality assurance
+- Reduces dropout risk by early detection of disengagement signals
+
+Next Phase Roadmap:
+- Full multimodal data fusion with rule-based and ML-based approaches
+- Expansion of participant pool to improve model generalization
+- Integration into production LMS/EdTech platforms
+- Longitudinal studies linking engagement metrics to learning outcomes`,
+    techStack: ["Next.js (Frontend)", "Python Flask (Backend)", "Muse S Headband (EEG)", "MediaPipe Face Mesh", "OpenCV", "face_recognition", "cvzone", "Streamlit", "SimpleEEGNet", "Autoencoder", "XGBoost", "SVM", "Random Forest", "PyTorch", "ICA (Independent Component Analysis)", "Welch PSD", "Lab Streaming Layer (LSL)", "Pickle", "JSON", "CSV", "Geometric Gaze Estimation"],
+    image: eegImage,
+    year: "2025"
+  },
+  {
     id: 9,
-    featured: false,
-    title: "Food Price Forecasting System for Indonesia: Multivariate Analytics & Time Series Modeling for Policy-Driven Insights",
-    category: "Data Analytics & Policy Support",
-    description: "Forecasting system predicting food commodity prices across 34 Indonesian provinces using multivariate analysis and time series models.",
-    longDescription: `This project addresses a critical national issue: food price volatility and its impact on economic stability, inflation, and public welfare. By leveraging multivariate analysis and time series forecasting, I built an end-to-end analytical pipeline predicting prices for 13 key food commodities across 34 provinces in Indonesia.
-
-From a business and governance perspective, the project delivers strong decision-support capabilities. Integration of external covariates—exchange rates, global commodity prices, import-export data, and Google Trends—enables a holistic forecasting approach aligned with real-world policy and business environments.
-
-Key IT Governance principles embedded:
-- Data standardization and consistency across all commodities
-- Reproducibility of analytical processes
-- Scalability for enterprise-level implementation
-
-Multiple models were benchmarked (Linear Regression, LSTM, ARIMA, XGBoost), with XGBoost delivering superior performance: MAPE ~0.1996 (validation), MAPE ~0.05465 (testing)—strong predictive accuracy for volatile food price data.
-
-Key insights and impact:
-- Identified highly influential external factors (global prices, exchange rates) affecting domestic food prices
-- Revealed that Google Trends has low correlation, preventing misleading assumptions
-- Highlighted critical role of preprocessing in model performance
-- Enabled early detection of price fluctuations for proactive policy and supply chain decisions
-
-From a performance standpoint, the project excels in:
-- Handling multi-dimensional, multi-region time series data
-- Producing actionable insights beyond predictions
-- Achieving low error rates (MAPE ~5%), strong for real-world economic forecasting
-- Demonstrating robust pipeline architecture, scalable into production systems
-
-From IT Governance / Business Analysis perspective:
-- Aligns data systems with business objectives (policy, economic stability)
-- Demonstrates analytics as a decision support system (DSS)
-- Strong emphasis on data quality, integration, and governance
-- Translates technical outputs into strategic stakeholder insights
-
-This project bridges technical ML implementation with real-world strategic impact, highly relevant for IT Consulting, IT Audit, and Business Analysis roles.`,
-    techStack: ["Python (Pandas, NumPy, Scikit-learn)", "XGBoost", "LSTM", "ARIMA", "Data Preprocessing (Interpolation, Standardization, Sequencing)", "Exploratory Data Analysis", "Data Pipeline Engineering", "Visualization (Matplotlib, Seaborn)"],
-    image: foodpriceImage,
-    year: "2025"
-    },
-    {
-      id: 10,
-      featured: false,
-      title: "Predictive Maintenance System: Machine Breakdown Detection using Anomaly Detection & Deep Learning",
-      category: "Data Analytics & Industrial IoT",
-      description: "Predictive maintenance system detecting machine anomalies and predicting breakdown status using deep learning and anomaly detection.",
-      longDescription: `This project addresses a critical industrial challenge: unplanned machine downtime and operational inefficiency. By leveraging machine learning on sensor data—temperature, vibration, and operational parameters—the system identifies potential failures before they occur.
-
-  From a business impact perspective, predictive maintenance delivers significant value. Industry studies show it can:
-  - Reduce maintenance costs by up to 20%
-  - Increase productivity by up to 25%
-  - Reduce breakdown incidents by up to 30%
-
-  The project processes large-scale data (~13M records) from multiple sources (main data, machine data, area data). Key challenges included:
-  - Data duplication from merging (13M → 16.5M)
-  - Mislabeling in ~942k records that could degrade model performance
-  - High outliers across numerical features
-
-  All issues resolved through a robust preprocessing pipeline:
-  - Data deduplication & cleaning
-  - Mislabel correction based on business logic
-  - Robust Scaler for outlier handling
-  - Feature selection & engineering to improve signal-to-noise ratio
-
-  Key analytical insights uncovered:
-  - Imbalanced machine status distribution (Normal 61%, Warning 20%, Breakdown 19%), impacting modeling strategy
-  - No significant correlation between features (except temperature variables), requiring the model to capture complex non-linear patterns
-  - High-risk machines and areas identified (e.g., Chinese-manufactured machines, regions like Jogja & Banten)
-
-  Modeling approach combines:
-  - Anomaly Detection (Autoencoder) for detecting abnormal patterns
-  - Dimensionality reduction (PCA) for computational efficiency
-  - Threshold optimization balancing false positives vs false negatives
-
-  From a performance standpoint, the project excels at:
-  - Processing high-volume industrial data (13M+ rows) efficiently
-  - Handling real-world data challenges (noise, imbalance, mislabeling)
-  - Early anomaly detection before breakdown occurs
-  - Producing actionable insights for maintenance decision-making
-
-  From IT Governance & Business Analysis perspective:
-  - Applies data governance principles (quality, consistency, integrity) in practice
-  - Supports decision support systems (DSS) for operational maintenance
-  - Links data analytics with business impact (cost reduction & efficiency)
-  - Demonstrates IT-business alignment for continuity & risk management
-
-  This project showcases end-to-end problem solving: from data chaos to insight to decision-ready system.`,
-      techStack: ["Python (Pandas, NumPy)", "Scikit-learn", "Deep Learning (Autoencoder)", "PCA (Dimensionality Reduction)", "Robust Scaler", "Matplotlib (EDA & Visualization)", "Data Preprocessing & Feature Engineering"],
-      image: machineImage,
-      year: "2025"
-  },
-  {
-    id: 11,
-    featured: false,
-    title: "Benteng Informasi Merah Putih: Digital Propaganda Detection & Social Network Intelligence System",
-    category: "Cyber Intelligence & Governance",
-    description: "End-to-end data mining system for detecting coordinated social-media propaganda using anomaly detection, social network analysis, and topic modeling.",
-    longDescription: `This project addresses one of the most critical digital-era challenges: information warfare and coordinated propaganda on social media. Using public discourse on X (Twitter) as a case study, the system was designed to computationally detect, analyze, and deconstruct disinformation propagation patterns.
-
-From an impact perspective, this project contributes directly to:
-- Strengthening national digital sovereignty
-- Early detection of disinformation campaigns
-- Providing a decision-support framework for stakeholders (government, analysts, etc.)
-- Reducing public-opinion manipulation risk
-
-The dataset contains approximately 4,600 tweets (cleaned to ~4,396) with combined features:
-- Text content (full_text)
-- Account metadata (followers, following, account age)
-- Engagement metrics (retweet, reply, quote)
-
-One major strength is its hybrid feature-engineering approach:
-- Text-based features (TF-IDF)
-- Behavioral features (account activity and interaction patterns)
-
-This approach is more powerful than text-only analysis because propaganda often appears in behavioral coordination patterns, not only in wording.
-
-High-value insights generated:
-- Detected anomalous, non-organic accounts using Isolation Forest
-- Uncovered coordinated account clusters through Social Network Analysis (degree centrality)
-- Showed that narrative spread is structured and actor-centered, not random
-
-Through LDA topic modeling, the system identified three core narratives:
-- High-level political intervention
-- Legal and judicial processes
-- Justice debates (legal resolution vs political resolution)
-
-This indicates propaganda operates with a multi-layered narrative strategy, not a single-message pattern.
-
-From an IT Governance / Business Analyst lens, the project is highly relevant because it:
-- Applies data governance principles (cleaning, consistency, feature integrity)
-- Builds a reproducible and scalable analytical framework
-- Supports risk management through disinformation-risk detection
-- Aligns IT systems with strategic national objectives (digital sovereignty)
-- Translates complex data into actionable decision intelligence
-
-Overall, the output is not just a model, but strategic intelligence ready to support real decision-making.`,
-    techStack: ["Python (Pandas, NumPy)", "Scikit-learn (Isolation Forest, TF-IDF)", "NLP (Tokenizing, Stemming, Filtering)", "NetworkX (Social Network Analysis)", "LDA (Topic Modeling)", "Iterative Imputer (Missing Value Handling)", "Data Preprocessing & Feature Engineering"],
-    image: sosmedImage,
-    year: "2025"
-  },
-  {
-    id: 12,
     featured: false,
     title: "COPPA Risk Detection System: Machine Learning for Children's Data Privacy Compliance in Mobile Apps",
     category: "Data Privacy & Compliance",
@@ -415,50 +317,164 @@ Overall, this is not just a model, but a decision support system for compliance 
     year: "2025"
   },
   {
-    id: 13,
+    id: 8,
     featured: false,
-    title: "Instagram Public Sentiment Intelligence for Customs Governance using K-Means Clustering",
-    category: "Public Sector Analytics",
-    description: "Analyzes 15,000+ Instagram comments about customs issues to identify sentiment patterns and public opinion dynamics using K-Means clustering.",
-    longDescription: `This project was developed to understand how the public responds to viral issues related to customs services. Using public discourse on Instagram as a case study, the system was designed to detect, analyze, and uncover hidden opinion patterns in a computational way.
+    title: "Competitive Market Intelligence: Consumer Sentiment Analysis & Topic Modeling (Advan vs. Xiaomi)",
+    category: "Business Analytics",
+    description: "Converts consumer reviews into actionable QC and after-sales governance insights.",
+    longDescription: `Indonesia's consumer technology market is dominated by imports (e.g., Xiaomi), creating structural challenges for local brands such as Advan. This project objectively diagnoses those root causes by extracting and analyzing customer reviews from Tokopedia using Selenium and BeautifulSoup.
 
-From an impact perspective, this project contributes directly to:
-- Digital reputation monitoring for public institutions
-- Early warning detection for public service issues
-- Data-driven evaluation for operational and communication improvement
-- Evidence-based public insight for institutional review
+The system implements a comprehensive NLP pipeline—cleaning, normalization, negation handling, stemming, and merging—to transform raw review text into structured features. Using supervised learning combined with semi-supervised annotation, models classify sentiment with accuracy >90% and quantify competitive realities: Xiaomi reports ~85.9% positive and ~5.1% negative reviews, while Advan records ~83% positive and ~6% negative.
 
-The dataset was collected through web scraping of Instagram comments from several high-traffic media accounts, covering two nationally discussed issues. In total, around 15,000 public comments were gathered from six different posts. The data then went through a text preprocessing pipeline including case folding, tokenizing, filtering, and stemming, followed by TF-IDF feature extraction and K-Means clustering to uncover hidden discussion patterns.
+The strategic impact is realized through Latent Dirichlet Allocation (LDA) topic modeling, which exposes five critical failure modes driving negative sentiment for Advan: Dead on Arrival (DOA) products; product damage on delivery; substandard multimedia and physical quality; poor camera performance and general performance issues; and weaknesses in return & after-sales service.
 
-In terms of performance, the model produced solid and actionable results:
-- SLB-A Pembina Nasional topic: average Silhouette Score of 0.5518
-- Medy Renaldy package unloading topic: average Silhouette Score of 0.5613
-
-These values fall into a reasonable clustering range, meaning the model can separate public opinion groups with sufficient quality for policy analysis and institutional evaluation.
-
-The most valuable output of the project is not just clustering, but the business and governance insight derived from the data. Key patterns identified include:
-- Public narratives suggesting issues only receive attention after going viral
-- Many comments highlighting trust in the institution
-- Clusters explicitly discussing operational negligence, accountability, and institutional reputation
-- Consistent opinion patterns across different posts, showing that public perception is structured rather than random
-
-From a Business Analyst perspective, this project helps answer questions such as:
-- What are the main public pain points regarding a public service?
-- How do issue escalation patterns form on social media?
-- Which areas pose the highest reputational risk for an organization?
-
-From an IT Governance perspective, the results can be used for:
-- Institutional digital reputation monitoring
-- Early warning systems for public service issues
-- Data-driven evaluation for operational and communication improvement
-
-Overall, this project shows how unstructured social media data can be transformed into strategic governance insight for decision-making.`,
-    techStack: ["Python", "Selenium (web scraping Instagram comments)", "Pandas", "Scikit-learn", "TF-IDF Vectorization", "K-Means Clustering", "Elbow Method", "Silhouette Score", "Matplotlib", "WordCloud", "CSV-based data pipeline"],
-    image: beacukaiImage,
-    year: "2024"
+These findings provide empirically grounded signals for senior management, indicating weaknesses in Supply Chain Management and Quality Assurance governance, and revealing Service Level Agreement (SLA) gaps in incident handling and after-sales support. The analytics enable precise internal audits and targeted governance interventions to recover market share from global competitors.`,
+    techStack: ["Selenium", "BeautifulSoup", "Python", "Scikit-learn", "Semi-Supervised Annotation", "LDA", "Pandas", "NumPy", "Market Research Analytics"],
+    image: produkImage,
+    year: "2025"
   },
   {
-    id: 14,
+    id: 7,
+    featured: false,
+    title: "Food Price Forecasting System for Indonesia: Multivariate Analytics & Time Series Modeling for Policy-Driven Insights",
+    category: "Data Analytics & Policy Support",
+    description: "Forecasting system predicting food commodity prices across 34 Indonesian provinces using multivariate analysis and time series models.",
+    longDescription: `This project addresses a critical national issue: food price volatility and its impact on economic stability, inflation, and public welfare. By leveraging multivariate analysis and time series forecasting, I built an end-to-end analytical pipeline predicting prices for 13 key food commodities across 34 provinces in Indonesia.
+
+From a business and governance perspective, the project delivers strong decision-support capabilities. Integration of external covariates—exchange rates, global commodity prices, import-export data, and Google Trends—enables a holistic forecasting approach aligned with real-world policy and business environments.
+
+Key IT Governance principles embedded:
+- Data standardization and consistency across all commodities
+- Reproducibility of analytical processes
+- Scalability for enterprise-level implementation
+
+Multiple models were benchmarked (Linear Regression, LSTM, ARIMA, XGBoost), with XGBoost delivering superior performance: MAPE ~0.1996 (validation), MAPE ~0.05465 (testing)—strong predictive accuracy for volatile food price data.
+
+Key insights and impact:
+- Identified highly influential external factors (global prices, exchange rates) affecting domestic food prices
+- Revealed that Google Trends has low correlation, preventing misleading assumptions
+- Highlighted critical role of preprocessing in model performance
+- Enabled early detection of price fluctuations for proactive policy and supply chain decisions
+
+From a performance standpoint, the project excels in:
+- Handling multi-dimensional, multi-region time series data
+- Producing actionable insights beyond predictions
+- Achieving low error rates (MAPE ~5%), strong for real-world economic forecasting
+- Demonstrating robust pipeline architecture, scalable into production systems
+
+From IT Governance / Business Analysis perspective:
+- Aligns data systems with business objectives (policy, economic stability)
+- Demonstrates analytics as a decision support system (DSS)
+- Strong emphasis on data quality, integration, and governance
+- Translates technical outputs into strategic stakeholder insights
+
+This project bridges technical ML implementation with real-world strategic impact, highly relevant for IT Consulting, IT Audit, and Business Analysis roles.`,
+    techStack: ["Python (Pandas, NumPy, Scikit-learn)", "XGBoost", "LSTM", "ARIMA", "Data Preprocessing (Interpolation, Standardization, Sequencing)", "Exploratory Data Analysis", "Data Pipeline Engineering", "Visualization (Matplotlib, Seaborn)"],
+    image: foodpriceImage,
+    year: "2025"
+  },
+  {
+    id: 6,
+    featured: false,
+    title: "Predictive Maintenance System: Machine Breakdown Detection using Anomaly Detection & Deep Learning",
+    category: "Data Analytics & Industrial IoT",
+    description: "Predictive maintenance system detecting machine anomalies and predicting breakdown status using deep learning and anomaly detection.",
+    longDescription: `This project addresses a critical industrial challenge: unplanned machine downtime and operational inefficiency. By leveraging machine learning on sensor data—temperature, vibration, and operational parameters—the system identifies potential failures before they occur.
+
+From a business impact perspective, predictive maintenance delivers significant value. Industry studies show it can:
+- Reduce maintenance costs by up to 20%
+- Increase productivity by up to 25%
+- Reduce breakdown incidents by up to 30%
+
+The project processes large-scale data (~13M records) from multiple sources (main data, machine data, area data). Key challenges included:
+- Data duplication from merging (13M → 16.5M)
+- Mislabeling in ~942k records that could degrade model performance
+- High outliers across numerical features
+
+All issues resolved through a robust preprocessing pipeline:
+- Data deduplication & cleaning
+- Mislabel correction based on business logic
+- Robust Scaler for outlier handling
+- Feature selection & engineering to improve signal-to-noise ratio
+
+Key analytical insights uncovered:
+- Imbalanced machine status distribution (Normal 61%, Warning 20%, Breakdown 19%), impacting modeling strategy
+- No significant correlation between features (except temperature variables), requiring the model to capture complex non-linear patterns
+- High-risk machines and areas identified (e.g., Chinese-manufactured machines, regions like Jogja & Banten)
+
+Modeling approach combines:
+- Anomaly Detection (Autoencoder) for detecting abnormal patterns
+- Dimensionality reduction (PCA) for computational efficiency
+- Threshold optimization balancing false positives vs false negatives
+
+From a performance standpoint, the project excels at:
+- Processing high-volume industrial data (13M+ rows) efficiently
+- Handling real-world data challenges (noise, imbalance, mislabeling)
+- Early anomaly detection before breakdown occurs
+- Producing actionable insights for maintenance decision-making
+
+From IT Governance & Business Analysis perspective:
+- Applies data governance principles (quality, consistency, integrity) in practice
+- Supports decision support systems (DSS) for operational maintenance
+- Links data analytics with business impact (cost reduction & efficiency)
+- Demonstrates IT-business alignment for continuity & risk management
+
+This project showcases end-to-end problem solving: from data chaos to insight to decision-ready system.`,
+    techStack: ["Python (Pandas, NumPy)", "Scikit-learn", "Deep Learning (Autoencoder)", "PCA (Dimensionality Reduction)", "Robust Scaler", "Matplotlib (EDA & Visualization)", "Data Preprocessing & Feature Engineering"],
+    image: machineImage,
+    year: "2025"
+  },
+  {
+    id: 5,
+    featured: false,
+    title: "Benteng Informasi Merah Putih: Digital Propaganda Detection & Social Network Intelligence System",
+    category: "Cyber Intelligence & Governance",
+    description: "End-to-end data mining system for detecting coordinated social-media propaganda using anomaly detection, social network analysis, and topic modeling.",
+    longDescription: `This project addresses one of the most critical digital-era challenges: information warfare and coordinated propaganda on social media. Using public discourse on X (Twitter) as a case study, the system was designed to computationally detect, analyze, and deconstruct disinformation propagation patterns.
+
+From an impact perspective, this project contributes directly to:
+- Strengthening national digital sovereignty
+- Early detection of disinformation campaigns
+- Providing a decision-support framework for stakeholders (government, analysts, etc.)
+- Reducing public-opinion manipulation risk
+
+The dataset contains approximately 4,600 tweets (cleaned to ~4,396) with combined features:
+- Text content (full_text)
+- Account metadata (followers, following, account age)
+- Engagement metrics (retweet, reply, quote)
+
+One major strength is its hybrid feature-engineering approach:
+- Text-based features (TF-IDF)
+- Behavioral features (account activity and interaction patterns)
+
+This approach is more powerful than text-only analysis because propaganda often appears in behavioral coordination patterns, not only in wording.
+
+High-value insights generated:
+- Detected anomalous, non-organic accounts using Isolation Forest
+- Uncovered coordinated account clusters through Social Network Analysis (degree centrality)
+- Showed that narrative spread is structured and actor-centered, not random
+
+Through LDA topic modeling, the system identified three core narratives:
+- High-level political intervention
+- Legal and judicial processes
+- Justice debates (legal resolution vs political resolution)
+
+This indicates propaganda operates with a multi-layered narrative strategy, not a single-message pattern.
+
+From an IT Governance / Business Analyst lens, the project is highly relevant because it:
+- Applies data governance principles (cleaning, consistency, feature integrity)
+- Builds a reproducible and scalable analytical framework
+- Supports risk management through disinformation-risk detection
+- Aligns IT systems with strategic national objectives (digital sovereignty)
+- Translates complex data into actionable decision intelligence
+
+Overall, the output is not just a model, but strategic intelligence ready to support real decision-making.`,
+    techStack: ["Python (Pandas, NumPy)", "Scikit-learn (Isolation Forest, TF-IDF)", "NLP (Tokenizing, Stemming, Filtering)", "NetworkX (Social Network Analysis)", "LDA (Topic Modeling)", "Iterative Imputer (Missing Value Handling)", "Data Preprocessing & Feature Engineering"],
+    image: sosmedImage,
+    year: "2025"
+  },
+  {
+    id: 3,
     featured: false,
     title: "Data-Driven Policy Analysis for Tackling Triple Burden of Malnutrition (TBM) using Global Comparative Insights",
     category: "Public Policy Analytics",
@@ -504,10 +520,10 @@ From an IT Governance / Data Governance perspective, this project:
 Overall, the project demonstrates that major malnutrition challenges are not just about lack of policy, but lack of integrated insight and governance supported by data.`,
     techStack: ["Python (Data Analysis & Visualization)", "Pandas", "Matplotlib / Seaborn", "Statistical Analysis (Trend & Distribution)", "Comparative Policy Analysis", "SDGs Open Data", "Data Visualization (Time Series & Distribution)"],
     image: malnutritionImage,
-    year: "2025"
+    year: "2024"
   },
   {
-    id: 15,
+    id: 2,
     featured: false,
     title: "Sundahub: Digital Marketplace for Scaling Sundanese Cultural Services through Data-Driven Marketing & Platform Strategy",
     category: "Digital Marketplace & Strategy",
@@ -547,6 +563,69 @@ From an IT Governance / Digital Strategy perspective, the project highlights:
 Overall, Sundahub shows that the main issue in creative cultural industries is not lack of talent or demand, but lack of system, platform, and data-driven strategy.`,
     techStack: ["Website Development (Frontend & Backend)", "SEO (Search Engine Optimization)", "Google Ads", "Social Media Marketing", "Market Analysis (TAM, SAM, SOM)", "User Behavior Analysis", "Digital Funnel Strategy"],
     image: tarisundaImage,
+    year: "2024"
+  },
+
+  {
+    id: 3,
+    featured: false,
+    title: "Instagram Public Sentiment Intelligence for Customs Governance using K-Means Clustering",
+    category: "Public Sector Analytics",
+    description: "Analyzes 15,000+ Instagram comments about customs issues to identify sentiment patterns and public opinion dynamics using K-Means clustering.",
+    longDescription: `This project was developed to understand how the public responds to viral issues related to customs services. Using public discourse on Instagram as a case study, the system was designed to detect, analyze, and uncover hidden opinion patterns in a computational way.
+
+From an impact perspective, this project contributes directly to:
+- Digital reputation monitoring for public institutions
+- Early warning detection for public service issues
+- Data-driven evaluation for operational and communication improvement
+- Evidence-based public insight for institutional review
+
+The dataset was collected through web scraping of Instagram comments from several high-traffic media accounts, covering two nationally discussed issues. In total, around 15,000 public comments were gathered from six different posts. The data then went through a text preprocessing pipeline including case folding, tokenizing, filtering, and stemming, followed by TF-IDF feature extraction and K-Means clustering to uncover hidden discussion patterns.
+
+In terms of performance, the model produced solid and actionable results:
+- SLB-A Pembina Nasional topic: average Silhouette Score of 0.5518
+- Medy Renaldy package unloading topic: average Silhouette Score of 0.5613
+
+These values fall into a reasonable clustering range, meaning the model can separate public opinion groups with sufficient quality for policy analysis and institutional evaluation.
+
+The most valuable output of the project is not just clustering, but the business and governance insight derived from the data. Key patterns identified include:
+- Public narratives suggesting issues only receive attention after going viral
+- Many comments highlighting trust in the institution
+- Clusters explicitly discussing operational negligence, accountability, and institutional reputation
+- Consistent opinion patterns across different posts, showing that public perception is structured rather than random
+
+From a Business Analyst perspective, this project helps answer questions such as:
+- What are the main public pain points regarding a public service?
+- How do issue escalation patterns form on social media?
+- Which areas pose the highest reputational risk for an organization?
+
+From an IT Governance perspective, the results can be used for:
+- Institutional digital reputation monitoring
+- Early warning systems for public service issues
+- Data-driven evaluation for operational and communication improvement
+
+Overall, this project shows how unstructured social media data can be transformed into strategic governance insight for decision-making.`,
+    techStack: ["Python", "Selenium (web scraping Instagram comments)", "Pandas", "Scikit-learn", "TF-IDF Vectorization", "K-Means Clustering", "Elbow Method", "Silhouette Score", "Matplotlib", "WordCloud", "CSV-based data pipeline"],
+    image: beacukaiImage,
+    year: "2024"
+  },
+  {
+    id: 4,
+    featured: false,
+    title: "Smart Mobility: Contactless Wheelchair Navigation via Head Pose Estimation & Microcontroller Integration",
+    category: "Smart Mobility",
+    description: "Hands-free wheelchair navigation using head-pose estimation and Arduino integration.",
+    longDescription: `Dependence on physical joysticks creates an accessibility barrier for users with severe motor disabilities (e.g., quadriplegia). This project presents a low-cost, hands-free navigation system that uses only a standard webcam and AI processing to translate 3D head pose and facial cues into mechanical motion commands.
+
+As a Business Analyst / Systems Architect I defined IT governance and operational controls to ensure reliability and user safety:
+- Precision Calibration (Dynamic Calibration): A quick 'C' calibration allows users to set a personal neutral point, compensating for seating differences or minor disturbances and preventing small involuntary movements from triggering commands (20° threshold).
+- Latency Governance (Multithreading): Vision processing and serial communication are isolated into separate threads—Thread A handles camera and CV pipeline, Thread B secures the Serial channel to the Arduino—ensuring deterministic response times (baudrate 9600) between user input and motor actuation.
+- Safety Protocol (Smooth Braking): The Arduino implements a Smooth Braking algorithm that gradually reduces PWM signals when the user's face returns to neutral, preventing abrupt stops that could endanger the user.
+- Intuitive Command Mapping: PnP and Euler-angle transforms map head movements to navigation: pitch down/up (Pitch < -15°) = forward, yaw left/right (Yaw > 20° / < -20°) = turn/pivot, and mouth-open ratio used as a discrete command for reverse.
+
+The project demonstrates how ML and CV algorithms can be translated into a robust IoT hardware solution—secure, safe, and impactful for enhancing mobility independence.`,
+    techStack: ["Python", "MediaPipe (Face Mesh, 468 landmarks)", "OpenCV", "NumPy", "PnP Solver / Euler Angles", "C++ (Arduino)", "Arduino Uno", "L298N Motor Driver", "DC Motors", "Multithreading", "Serial Communication (USB)"],
+    image: robotImage,
     year: "2025"
   },
-];
+]; 
