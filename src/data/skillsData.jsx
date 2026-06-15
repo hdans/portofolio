@@ -44,7 +44,8 @@ export const skillsCategories = [
       { name: "IT Asset Management & Auditing", icon: <Box size={16} /> },
       { name: "Compliance Monitoring", icon: <Search size={16} /> },
       { name: "Audit Trail Design", icon: <FileText size={16} /> },
-      { name: "IT Control Framework (COBIT, ISO)", icon: <ShieldCheck size={16} /> }
+      { name: "IT Control Framework (COBIT, ISO)", icon: <ShieldCheck size={16} /> },
+      { name: "Data Integrity Assurance", icon: <ShieldCheck size={16} /> }
     ]
   },
   {
@@ -90,7 +91,9 @@ export const skillsCategories = [
       { name: "RESTful API", icon: <Globe size={16} /> },
       { name: "JWT Authentication", icon: <ShieldCheck size={16} /> },
       { name: "Railway", icon: <Cloud size={16} /> },
-      { name: "Vercel", icon: <Cloud size={16} /> }
+      { name: "Vercel", icon: <Cloud size={16} /> },
+      { name: "Zero Trust Architecture", icon: <ShieldCheck size={16} /> },
+      { name: "Payment Gateway", icon: <Globe size={16} /> }
     ]
   },
   {
@@ -111,7 +114,8 @@ export const skillsCategories = [
       { name: "MediaPipe", icon: <Monitor size={16} /> },
       { name: "OpenCV", icon: <Monitor size={16} /> },
       { name: "Time Series (Darts)", icon: <TrendingUp size={16} /> },
-      { name: "FP-Growth", icon: <Activity size={16} /> }
+      { name: "FP-Growth", icon: <Activity size={16} /> },
+      { name: "Signal Processing", icon: <Activity size={16} /> }
     ]
   },
   {
@@ -157,7 +161,8 @@ export const skillsCategories = [
       { name: "Problem Decomposition", icon: <Box size={16} /> },
       { name: "Conflict Resolution", icon: <Users size={16} /> },
       { name: "Leadership", icon: <Target size={16} /> },
-      { name: "Data-Driven Decisions", icon: <BarChart size={16} /> }
+      { name: "Data-Driven Decisions", icon: <BarChart size={16} /> },
+      { name: "WhatsApp API", icon: <Globe size={16} /> }
     ]
   }
 ];

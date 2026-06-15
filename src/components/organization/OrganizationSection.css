@@ -85,6 +85,10 @@
   margin-bottom: 3rem;
 }
 
+.org-highlighted-grid > div {
+  height: 100%;
+}
+
 .org-highlight-card {
   background: rgba(61, 61, 61, 0.5);
   border: 1px solid rgba(201, 169, 98, 0.15);
@@ -95,6 +99,9 @@
     box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
     border-color 0.35s ease;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .org-highlight-card:hover {
@@ -163,6 +170,9 @@
 
 .org-highlight-info {
   padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .org-highlight-badge {
@@ -194,6 +204,7 @@
   font-size: 0.78rem;
   color: rgba(255, 255, 255, 0.45);
   letter-spacing: 0.02em;
+  margin-top: auto;
 }
 
 /* ========== OTHER ORGANIZATIONS — COMPACT GRID ========== */
@@ -219,6 +230,10 @@
   gap: 1rem;
 }
 
+.org-other-grid > div {
+  height: 100%;
+}
+
 .org-compact-card {
   display: flex;
   align-items: center;
@@ -229,6 +244,7 @@
   border-radius: 12px;
   cursor: none !important;
   transition: all 0.3s ease;
+  height: 100%;
 }
 
 .org-compact-card:hover {
