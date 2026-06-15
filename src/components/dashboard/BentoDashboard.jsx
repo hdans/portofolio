@@ -45,7 +45,7 @@ const BentoDashboard = () => {
       >
         {/* Intro */}
         <motion.div className="bento-card intro-card" variants={cardVariants}>
-          <p className="greeting">Hi, I'm Danish —</p>
+          <p className="greeting">Hi, I'm Danish -</p>
           <h1 className="headline">
             Project Manager, IT Business Analyst & Full Stack Developer based in Indonesia.
           </h1>

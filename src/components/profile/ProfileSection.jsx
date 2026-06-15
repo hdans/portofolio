@@ -1,10 +1,15 @@
+import { useState } from 'react';
 import ScrollReveal from '../common/ScrollReveal';
 import { profileData } from '../../data/profileData';
-import { skillsData } from '../../data/skillsData';
+import { skillsCategories } from '../../data/skillsData';
 import landingImage from '../../assets/img/landing.jpg';
 import './ProfileSection.css';
 
 const ProfileSection = () => {
+  const [activeFilter, setActiveFilter] = useState('pm');
+  
+  const activeCategory = skillsCategories.find(c => c.id === activeFilter) || skillsCategories[0];
+
   const socialLinks = [
     {
       name: 'GitHub',
@@ -37,7 +42,6 @@ const ProfileSection = () => {
           </div>
         </ScrollReveal>
 
-        {/* Main Content - Single Column */}
         <div className="profile-content">
           {/* Top Section - Summary with Social + Photo */}
           <ScrollReveal direction="up" delay={0.2}>
@@ -70,7 +74,7 @@ const ProfileSection = () => {
             </div>
           </ScrollReveal>
 
-          {/* Info Grid */}
+          {/* Info Grid (Always Visible) */}
           <div className="info-grid">
             {/* What I Do Card */}
             <ScrollReveal direction="left" delay={0.3}>
@@ -116,81 +120,57 @@ const ProfileSection = () => {
               </div>
             </ScrollReveal>
           </div>
-        </div>
 
-        {/* Skills Section */}
-        <ScrollReveal direction="up" delay={0.4}>
-          <div className="skills-section">
-            <h3 className="subsection-title">Technical Expertise</h3>
-            <div className="skills-grid">
-              <div className="skills-category">
-                <h4 className="category-name">Project Management & Business Analysis</h4>
-                <div className="skills-tags">
-                  {skillsData.pmBa.map((skill, index) => (
-                    <span key={index} className="skill-tag" data-cursor-hover>
-                      {skill}
-                    </span>
-                  ))}
+          {/* Skills Section with Nested Pill Navigation */}
+          <ScrollReveal direction="up" delay={0.4}>
+            <div className="skills-section">
+              <div className="info-card">
+                <div className="card-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                  </svg>
                 </div>
-              </div>
-
-              <div className="skills-category">
-                <h4 className="category-name">Frontend</h4>
-                <div className="skills-tags">
-                  {skillsData.frontend.map((skill, index) => (
-                    <span key={index} className="skill-tag" data-cursor-hover>
-                      {skill}
-                    </span>
-                  ))}
+                
+                <div className="skills-header-wrapper">
+                  <h3 className="card-title">Technical Expertise</h3>
+                  
+                  {/* Nested Pill Navigation using Map */}
+                  <div className="skills-filter-nav">
+                    {skillsCategories.map(category => (
+                      <button
+                        key={category.id}
+                        className={`skill-filter-btn ${activeFilter === category.id ? 'active' : ''}`}
+                        onClick={() => setActiveFilter(category.id)}
+                        data-cursor-hover
+                      >
+                        <span className="btn-icon">{category.icon}</span>
+                        {category.label}
+                      </button>
+                    ))}
+                  </div>
                 </div>
-              </div>
 
-              <div className="skills-category">
-                <h4 className="category-name">Backend & Infrastructure</h4>
-                <div className="skills-tags">
-                  {skillsData.backend.map((skill, index) => (
-                    <span key={index} className="skill-tag" data-cursor-hover>
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="skills-category">
-                <h4 className="category-name">AI / ML</h4>
-                <div className="skills-tags">
-                  {skillsData.mlAi.map((skill, index) => (
-                    <span key={index} className="skill-tag" data-cursor-hover>
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="skills-category">
-                <h4 className="category-name">Languages</h4>
-                <div className="skills-tags">
-                  {skillsData.languages.map((skill, index) => (
-                    <span key={index} className="skill-tag" data-cursor-hover>
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="skills-category">
-                <h4 className="category-name">Tools</h4>
-                <div className="skills-tags">
-                  {skillsData.tools.map((skill, index) => (
-                    <span key={index} className="skill-tag" data-cursor-hover>
-                      {skill}
-                    </span>
-                  ))}
+                <div className="skills-content-area">
+                  {/* Display the selected category's tags with staggered animation */}
+                  <div key={activeFilter} className="skills-tags fade-in-stagger">
+                    {activeCategory.skills.map((skill, index) => (
+                      <span 
+                        key={index} 
+                        className="skill-tag stagger-item" 
+                        data-cursor-hover
+                        style={{ animationDelay: `${index * 0.03}s` }}
+                      >
+                        <span className="tag-icon">{skill.icon}</span>
+                        {skill.name}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </ScrollReveal>
+          </ScrollReveal>
+        </div>
       </div>
     </section>
   );

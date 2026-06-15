@@ -13,7 +13,7 @@ const HeroSection = () => {
     'Project Manager',
     'IT Business/System Analyst',
     'Full Stack Developer',
-    'AI Engineer',
+    'AI/ML Engineer',
   ];
 
   const containerVariants = {

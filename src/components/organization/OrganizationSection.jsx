@@ -56,7 +56,7 @@ const OrganizationSection = () => {
           ))}
         </div>
 
-        {/* Other Organizations — Compact Grid */}
+        {/* Other Organizations - Compact Grid */}
         {otherOrgs.length > 0 && (
           <div className="org-other-wrapper">
             <h3 className="org-other-title">Other Involvement</h3>
