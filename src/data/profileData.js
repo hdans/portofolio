@@ -1,19 +1,19 @@
 export const profileData = {
   name: "Danish Rahadian",
   title: "Portfolio Danish Rahadian",
-  summary: `Informatics Engineering student at Padjadjaran University focused on IT Governance, IT Audit, and IT Consulting, with supporting strengths in Data and Business Analysis and Full Stack implementation. Experienced in building end-to-end analytical and digital solutions, from data preparation and insight generation to dashboarding and system delivery. Proven ability to work with large-scale datasets (13M+ records), collaborate across technical and business stakeholders, and deliver measurable outcomes in internship, competition, and organizational settings.`,
+  summary: `Informatics Engineering student at Padjadjaran University with proven experience leading cross-functional teams, translating business requirements into delivery roadmaps, and managing end-to-end project lifecycles. Equally comfortable shipping full-stack web applications from scratch to production using Next.js, React, FastAPI, and Node.js. Demonstrated ability to align stakeholder needs with technical scope, identify operational risks early, and drive measurable outcomes — from a profit-generating nationwide program to an enterprise IT governance initiative covering 400+ branches, to platforms with complex auth and payment flows and AI-integrated features.`,
   
   roles: [
-    "IT Governance / Audit / Consulting",
-    "Data & Business Analyst",
+    "Project Manager",
+    "IT Business/System Analyst",
     "Full Stack Developer",
-    "Data Scientist & ML Engineer"
+    "AI Engineer"
   ],
   
   education: {
     university: "Padjadjaran University",
-    semester: 6,
+    semester: 7,
     gpa: 3.96,
-    description: `Informatics Engineering student at Padjadjaran University with strong academic performance, actively balancing coursework with internship, research, and project-based experience. Academic and practical exposure has strengthened my foundation in IT governance and audit-related thinking, supported by hands-on work in data and business analysis as well as full-stack solution development to solve real-world problems.`
+    description: `Informatics Engineering student at Padjadjaran University (GPA 3.96/4.00) with a strong foundation in structured project delivery and business analysis, complemented by hands-on experience shipping full-stack applications and AI-integrated systems. Recipient of Karya Salemba Empat (KSE) Excellence Program Scholarship for academic excellence and leadership potential.`
   }
 };

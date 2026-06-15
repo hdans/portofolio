@@ -14,7 +14,6 @@ import beacukaiImage from '../assets/img/beacukai.jpg';
 import malnutritionImage from '../assets/img/malnutrition.png';
 import tarisundaImage from '../assets/img/tarisunda.png';
 import insuranceImage from '../assets/img/insurance.png';
-import { image } from 'framer-motion/client';
 
 export const projectsData = [
   {
@@ -22,17 +21,36 @@ export const projectsData = [
     featured: true,
     title: "LangkahLegal: Integrated Legal Assistance Platform",
     category: "Product",
-    description: "A legal service management platform that digitizes access to justice through AI triage and strict credential verification",
-    longDescription: `LangkahLegal is designed to remove barriers to justice by connecting clients and legal consultants in a secure, efficient, and transparent way. From a governance and business analysis perspective, the project focuses on system flow design that aligns with data privacy standards and operational risk mitigation.
+    description: "A legal service management platform that digitizes access to justice through AI triage, role-separated authorization, and strict credential verification.",
+    businessDescription: `As the project lead, I designed the end-to-end system flow and governance architecture for a legal assistance platform — covering credential verification, tiered access control, and transaction governance while aligning all architecture decisions with data privacy standards and operational risk requirements.
 
-Key business and architecture features include:
-- Credential Verification & Tiered Authorization (Access Control): Implements a legal document validation flow, such as advocate credentials or pro bono client letters, handled by the Administrator. The authorization model uses a Zero-Trust approach with JSON Web Tokens (JWT) to enforce strict role separation between Client, Consultant, and Admin.
-- AI Risk Management (AI Grounding & Compliance): The legal education module is powered by a Retrieval-Augmented Generation (RAG) architecture. To reduce misinformation risk and AI hallucinations, the model is constrained to retrieve context only from a Vector Database populated with official Indonesian legal documents such as the Penal Code, Civil Code, and domestic violence law.
-- Privacy Protection & Data Security (Data Privacy): The public case marketplace is designed to anonymize client identities using hashing algorithms to protect Personally Identifiable Information (PII). In addition, supporting case evidence is stored in an Encrypted Vault to prevent data leakage.
-- Transaction Governance (Transaction Auditability): Payment flows are a  utomated through Midtrans integration, producing real-time invoice and webhook status records so every transaction leaves an auditable financial trail.
+Key Business & Governance Contributions:
 
-Tech stack includes RESTful API, JWT authentication, Supabase for transactional and vector data, Gemini API, Midtrans, Zoom API, Python backend logic, Railway cloud hosting, and Vercel frontend deployment.`,
-    techStack: ["RESTful API", "JWT Authentication", "Supabase", "Gemini API", "Midtrans", "Python", "Vercel"],
+• Credential Verification & Tiered Authorization: Designed a legal document validation flow (advocate credentials, pro bono client letters) handled by the Administrator, with a Zero-Trust authorization model enforcing strict role separation between Client, Consultant, and Admin.
+
+• AI Risk Management & Compliance: Defined business requirements for the AI risk management module — scoped RAG constraints to prevent hallucination by grounding responses only to official Indonesian legal documents (Penal Code, Civil Code, DV Law). Mapped PII protection controls and specified encrypted storage requirements for case evidence.
+
+• Transaction Governance & Audit Trail: Structured payment governance flow with automated Midtrans invoice and webhook audit trails, ensuring every transaction produces a traceable financial record for compliance purposes.
+
+• Data Privacy & Security Architecture: Designed PII anonymization using hashing algorithms for the public case marketplace and specified an Encrypted Vault for case evidence to prevent data leakage — aligning the system with data privacy standards.`,
+    technicalDescription: `Built a full-stack legal platform from scratch to production, handling complex authorization, AI integration, payment processing, and automated deployment.
+
+Technical Implementation:
+
+• Role-Separated Authorization: Implemented JWT-based Zero Trust access control at the API layer, enforcing strict role separation (Client / Consultant / Admin) with route-level middleware guards in FastAPI.
+
+• RAG Architecture: Integrated Supabase pgvector for vector storage + Gemini API for LLM inference, grounded to official Indonesian legal documents. Built the embedding pipeline, similarity search, and context injection to eliminate hallucination risk in AI-generated legal responses.
+
+• Payment Integration: Shipped end-to-end Midtrans payment flows with webhook handlers for real-time transaction status updates, automated invoice generation, and payment verification middleware.
+
+• PII Anonymization & Encrypted Vault: Implemented hashing-based anonymization for the case marketplace and encrypted evidence storage for sensitive legal documents.
+
+• Consultation Scheduling: Integrated Zoom API for real-time consultation booking between clients and legal consultants.
+
+• Deployment & CI/CD: Deployed with automated CI pipeline on Railway (FastAPI backend) and Vercel SSR (Next.js frontend) — zero downtime from staging to production.
+
+Tech Stack: Next.js, FastAPI, Python, Supabase, Gemini API, Midtrans, Railway, Vercel`,
+    techStack: ["Next.js", "FastAPI", "Python", "Supabase", "Gemini API", "Midtrans", "Railway", "Vercel"],
     image: langkahLegalImage,
     year: "2026"
   },
@@ -41,40 +59,74 @@ Tech stack includes RESTful API, JWT authentication, Supabase for transactional 
     featured: true,
     title: "DeQRypt: AI-Powered DeFi Payment & Portfolio System",
     category: "Product",
-    description: "AI-powered DeFi payment prototype with QR-based transactions and LLM-driven portfolio management on Base network (hackathon project).",
-    longDescription: `This system was built to bridge the gap between the intuitive interface of conventional financial applications and decentralized financial infrastructure, while maintaining strict transaction governance standards. The project focused on reducing user friction and mitigating systemic risk through a structured architectural approach.
+    description: "AI-powered DeFi payment prototype with QR-based transactions, LLM-driven portfolio management, and strict transaction governance on Base network.",
+    businessDescription: `Led the functional specification and governance design for a DeFi payment system built during a hackathon — focusing on bridging backend logic with frontend implementation and eliminating critical architecture risks.
 
-  Business Problem Solving & Risk Mitigation:
-  - Eliminating Authentication Input Risk (Error Reduction): Replaced manual identity-address input, which is highly error-prone, with standardized QR-code scanning. This reduced fund-loss risk caused by human error and simplified the payment flow for non-technical users.
-  - Data-Driven Asset Optimization (Decision Support): Provided an automated analytics assistant that acts as a financial copilot. The system analyzes market returns in real time to guide asset allocation decisions and prevent idle funds from depreciating due to inflation.
+Key Business & Governance Contributions:
 
-  Governance Actions & System Problem Resolution:
-  - Segregation of Duties in Custodial Flow: Identified and removed fund-control ambiguity by restructuring the payment flow. The router contract is designated as the sole transaction executor, while the treasury wallet is isolated as a passive recipient to prevent unauthorized access or third-party fund manipulation.
-  - Data Integrity & Transaction Auditability (Handling Silent Failures): Detected a critical anomaly where the backend API recorded a "Success" status before network-level finality. To prevent ledger inconsistency, the system was redesigned with strict backend transaction-receipt validation. Database writes now occur only after 100% confirmed block validation, ensuring audit-grade data accuracy.
-  - Functional Specification Standardization (Requirement Translation): Resolved integration friction by creating detailed specification guidelines for the frontend team. This documentation bridged backend logic with interface implementation, ensuring approval and validation flows aligned with the intended system architecture.
-  - Scalable Multi-Asset Architecture: Refactored contract logic from a single-asset storage model into a dynamic Multi-Asset Pool architecture. This backend upgrade enabled management of multiple asset types through one contract interface, improving scalability without compromising security.`,
-    techStack: ["Solidity", "Base Network", "Account Abstraction", "FastAPI", "Next.js", "LLM", "Web3.js"],
+• Functional Specification & Requirement Translation: Produced detailed functional specification documentation to bridge backend logic and frontend implementation, resolving integration ambiguity and aligning the team on approval and validation flows.
+
+• Critical Architecture Risk Identification: Identified and resolved a critical system architecture risk — segregated custodial roles where the router contract serves as the sole transaction executor and the treasury wallet as a passive recipient, eliminating fund-control ambiguity.
+
+• Data Integrity & Transaction Auditability: Detected a data integrity gap where the API returned success status before block finality. Redesigned the transaction validation flow to ensure database writes only occur post-confirmation, achieving audit-grade accuracy.
+
+• User Friction Reduction: Replaced manual identity-address input (highly error-prone) with standardized QR-code scanning, reducing fund-loss risk caused by human error and simplifying the payment flow for non-technical users.
+
+• Decision Support Design: Designed an automated analytics assistant acting as a financial copilot — analyzing market returns in real time to guide asset allocation decisions and prevent idle funds from depreciating due to inflation.`,
+    technicalDescription: `Built a DeFi payment prototype on Base Network from scratch, handling smart contract architecture, account abstraction, and real-time LLM integration.
+
+Technical Implementation:
+
+• DeFi Payment Flow: Built QR-based transaction flow on Base Network with account abstraction for simplified onboarding — users don't need to manage private keys or gas fees directly.
+
+• Critical Bug Resolution: Resolved a critical data integrity bug where the backend recorded "Success" before network finality. Redesigned the validation flow to only write to DB after 100% confirmed block receipt, preventing ledger inconsistency.
+
+• Multi-Asset Pool Smart Contract: Architected a Multi-Asset Pool smart contract (Solidity) enabling dynamic multi-token management through a single contract interface — improving scalability without compromising security.
+
+• LLM Portfolio Assistant: Integrated LLM-based portfolio management that analyzes real-time market data and provides asset allocation recommendations through a conversational interface.
+
+• Account Abstraction: Implemented ERC-4337 account abstraction to abstract away wallet complexity, enabling one-click onboarding for non-crypto-native users.
+
+Tech Stack: Next.js, FastAPI, Solidity, Base Network, Account Abstraction, Web3.js, LLM`,
+    techStack: ["Next.js", "FastAPI", "Solidity", "Base Network", "Account Abstraction", "Web3.js", "LLM"],
     image: deqryptImage,
     year: "2026"
   },
   {
     id: 14,
     featured: true,
-    title: "Sobat Warung: AI-Powered Digital Record System for Urban Micro-Retail Economy",
+    title: "Sobat Warung: AI-Powered Micro-Retail Digitization System",
     category: "Product & Data Systems",
-    description: "WhatsApp Bot solution for micro-retail digitization through stock intelligence, collective buying, inventory management, and trust scoring.",
-    longDescription: `Warung dominates Indonesia's retail landscape with 3.94 million establishments (98.78% of total retail) and contributes 61% to national GDP. Yet the sector faces multilayered crises: fragmented supply chains (up to 5 intermediary layers cutting margins by 20-25%), gut-driven inventory management, and financial exclusion where only 20% of SMEs have access to formal bank credit.
+    description: "WhatsApp-based solution for micro-retail digitization through stock intelligence, collective buying, inventory management, and credit scoring.",
+    businessDescription: `Analyzed the structural crisis facing Indonesia's 3.94 million warungs and translated complex pain points into a zero-learning-curve product architecture — defining the business logic for credit scoring, inventory intelligence, and supply chain optimization.
 
-Sobat Warung was built to solve this data and operational crisis with a zero-learning-curve approach. Instead of forcing users to download new apps, the system fully integrates with WhatsApp—leveraging over 112 million users across Indonesia. Through conversational interface (chatbot), users can systematically submit daily sales data.
+Key Business & Analysis Contributions:
 
-Four core functional pillars:
-- Stock Intelligence: Implements Lag-Based Ensemble Model to forecast next-day demand, preventing dead stock and optimizing inventory turnover.
-- Inventory Management & Bundling Strategy: Maps transaction patterns using algorithms to recommend bundling strategies for slow-moving products.
-- Collective Buying: Aggregates demand from multiple warung in one area to make bulk purchases from trusted distributors, reducing cost of goods sold (COGS) burden.
-- Credit/Trust Score Generator: Converts daily sales recording into objective financial record data, processed into credit eligibility metrics (loans up to Rp 10,000,000) for formal financial institutions.
+• Market Problem Analysis: Analyzed a 3.94M warung market problem — fragmented supply chains (up to 5 intermediary layers cutting margins by 20-25%), gut-driven inventory management, and financial exclusion where only 20% of SMEs have access to formal bank credit.
 
-The system not only improves warung owners' profit margins but also generates accurate micro-economic data to support Smart City initiatives and government fiscal governance.`,
-    techStack: ["WhatsApp API", "Lag-Based Ensemble Model", "LightGBM", "Darts", "FP-Growth", "Python", "FastAPI"],
+• Zero-Learning-Curve Architecture Decision: Made the strategic product decision to build entirely on WhatsApp (112M+ users in Indonesia) instead of a standalone app, removing the adoption barrier for non-tech-savvy warung owners.
+
+• Credit Scoring Business Logic: Defined credit scoring business logic that converts daily sales behavior into trust score metrics for formal financing eligibility (up to Rp 10,000,000), bridging micro-retail data with financial institution requirements.
+
+• Bundling & Merchandising Strategy: Translated basket analysis findings into merchandising governance recommendations — identified co-purchase patterns and specified product placement and bundling strategies to optimize inventory turnover for slow-moving products.
+
+• Collective Buying Model: Designed demand aggregation logic from multiple warungs in one area for bulk purchasing from trusted distributors, reducing cost of goods sold (COGS) burden.`,
+    technicalDescription: `Built a WhatsApp chatbot system for micro-retail digitization with ML-powered demand forecasting, basket analysis, and credit scoring — all accessible through a conversational interface.
+
+Technical Implementation:
+
+• WhatsApp Chatbot Engine: Built a conversational interface using WhatsApp API + FastAPI backend, letting warung owners log daily sales through natural chat interactions with zero learning curve.
+
+• Demand Forecasting Model: Developed a Lag-Based Ensemble forecasting model combining LightGBM + Darts for next-day inventory demand prediction, using historical sales patterns and temporal features.
+
+• Basket Analysis Pipeline: Implemented FP-Growth association mining algorithm to discover co-purchase patterns across product categories, generating automated bundling recommendations for slow-moving inventory.
+
+• Credit Score Engine: Built a scoring engine that converts daily sales history into structured financial metrics (transaction frequency, revenue stability, growth trends) for formal credit institution eligibility assessment (loans up to Rp 10,000,000).
+
+• Stock Intelligence Alerts: Automated inventory monitoring with threshold-based alerts for stockout risk and overstock detection, triggered directly through WhatsApp notifications.
+
+Tech Stack: WhatsApp API, FastAPI, Python, LightGBM, Darts, FP-Growth`,
+    techStack: ["WhatsApp API", "FastAPI", "Python", "LightGBM", "Darts", "FP-Growth"],
     image: sobatwarungImage,
     year: "2025"
   },
@@ -83,17 +135,36 @@ The system not only improves warung owners' profit margins but also generates ac
     featured: true,
     title: "DataNiaga: Retail Decision Support System",
     category: "AI/Machine Learning",
-    description: "Retail Decision Support System utilizing LightGBM to handle multi-regional demand volatility and FP-Growth for automated product bundling.",
-    longDescription: `Inventory distortion—both stockout revenue loss and overstock working capital burden—represents a primary operational risk in retail. DataNiaga was engineered as a data-driven decision-making system to replace intuition-based inventory estimates with historical inference, functioning not merely as a reporting instrument but as an automated Business Action Recommendation Engine that proactively identifies risks and delivers strategic solutions.
+    description: "Full-stack retail analytics platform with automated risk monitoring, demand forecasting, and merchandising recommendations across 30+ product categories.",
+    businessDescription: `Defined the business problem scope and analytical requirements for a retail decision support system — mapping inventory distortion risks and translating them into actionable procurement decision triggers and merchandising governance recommendations.
 
-Business Problem Solving & Risk Mitigation:
-- Segregated Regional Risk Modeling: Recognizing that consumption patterns and purchasing volatility vary significantly across Indonesian geography (e.g., payday effects differ materially between Sumatra and Kalimantan), the system employs segregated forecasting models per region. This analytical governance structure prevents estimation bias that would occur with a single global model applied uniformly across all branches, ensuring regional demand variance is captured with 5-30% MAPE accuracy (LightGBM).
-- Early Inventory Risk Detection (Stockout Alert System): Implements three-layer risk monitoring (Declining Trend, Below Average, Negative Growth indicators). The system automatically triggers alerts when product forecast trends decline significantly, providing management with critical lead time to intervene with procurement decisions before inventory physically exhausts at point-of-sale.
-- Dead Stock Clearance Strategy & Automated Bundling: For declining-trend products, the system extracts association rules (purchase correlation patterns via FP-Growth algorithm). It then recommends targeted bundling promotions—coupling slow-moving inventory with high-velocity "anchor" products (stable sales, high Lift ratio)—to accelerate inventory turnover without excessive promotional cost burn.
-- Cross-Selling Optimization & Merchandising Governance: Converts basket analysis into physical store layout recommendations. Products with statistically high co-purchase probability are flagged for adjacent placement to trigger impulse-buying behavior and increase Average Transaction Value per store visit.
+Key Business & Analysis Contributions:
 
-The system integrates 30+ category-specific analytics dashboards feeding real-time data through FastAPI backend and Next.js frontend, transforming raw transaction data into auditable business actions that protect revenue and optimize working capital deployment.`,
-    techStack: ["Python", "LightGBM", "FP-Growth", "FastAPI", "Next.js", "Pandas", "NumPy"],
+• Business Problem Scoping: Defined business problem scope and analytical requirements — mapped inventory distortion risks (stockout revenue loss vs. overstock working capital burden) and translated them into a multi-regional forecasting and alert system covering 30+ product categories.
+
+• 3-Layer Risk Monitoring Framework: Designed a 3-layer risk monitoring framework (Declining Trend, Below Average, Negative Growth) as the core business logic for procurement decision triggers — the system automatically triggers alerts when product forecast trends decline significantly, providing management with critical lead time.
+
+• Merchandising Governance: Translated basket analysis findings into merchandising governance recommendations — identified co-purchase patterns and specified product placement and bundling strategies to optimize Average Transaction Value per store visit.
+
+• Regional Risk Segregation: Recognized that consumption patterns and purchasing volatility vary significantly across Indonesian geography (e.g., payday effects differ between Sumatra and Kalimantan), and defined the requirement for segregated forecasting models per region to prevent estimation bias.
+
+• Dead Stock Clearance Strategy: For declining-trend products, designed the logic for targeted bundling promotions — coupling slow-moving inventory with high-velocity "anchor" products to accelerate inventory turnover without excessive promotional cost burn.`,
+    technicalDescription: `Built a full-stack retail analytics platform from scratch with FastAPI backend and Next.js frontend, delivering 30+ interactive dashboards with automated alert engines and ML-powered forecasting.
+
+Technical Implementation:
+
+• Full-Stack Architecture: Built the complete platform with FastAPI (Python) backend serving REST APIs and Next.js frontend rendering 30+ interactive dashboards for demand, inventory, and category monitoring.
+
+• ML Forecasting Pipeline: Implemented LightGBM-based demand forecasting with segregated regional models, achieving 5-30% MAPE accuracy. Built feature engineering pipelines with temporal, lag-based, and categorical features.
+
+• Automated Alert Engine: Integrated a three-layer alert system (Declining Trend, Below Average, Negative Growth) that processes forecast outputs and surfaces actionable procurement recommendations directly in the dashboard UI.
+
+• Association Mining: Implemented FP-Growth algorithm for basket analysis across product categories, generating co-purchase correlation patterns and automated bundling recommendations with Lift ratio scoring.
+
+• Dashboard System: Built 30+ category-specific analytics dashboards with real-time data feeds, interactive filters, and drill-down capabilities for regional and temporal analysis.
+
+Tech Stack: Next.js, FastAPI, Python, PostgreSQL, LightGBM, FP-Growth`,
+    techStack: ["Next.js", "FastAPI", "Python", "PostgreSQL", "LightGBM", "FP-Growth"],
     image: dataniagaImage,
     year: "2025"
   },
@@ -103,84 +174,65 @@ The system integrates 30+ category-specific analytics dashboards feeding real-ti
     title: "Predictive Insurance Claim Analytics using Gradient Boosting & Evolutionary Optimization",
     category: "Insurance Analytics",
     description: "Predicts health insurance claims to anticipate claim spikes and support financial stability through CatBoost and evolutionary optimization.",
-    longDescription: `This project was developed in response to a real problem in the insurance industry: a 25.5% claim surge in 2025 that could threaten financial stability and increase premiums for customers.
+    businessDescription: `Addressed a real problem in the insurance industry: a 25.5% claim surge in 2025 threatening financial stability and customer premiums. Designed a decision support system for risk prediction, financial planning, and pricing strategy.
 
-The main goal was to identify the factors driving claims, build an accurate and robust prediction model, and deliver a data-driven decision support system.
+Key Business Contributions:
 
-Data and analytical approach:
-- 4,096 policy records
-- 5,781 claim records
-- Period: January 2024 to July 2025
+• Business Problem Definition: Identified the 25.5% claim surge as a critical financial risk and defined the analytical requirements for a predictive system that supports proactive risk management rather than reactive responses.
 
-The analysis used a time-series forecasting approach based on frequency-severity decomposition, supported by advanced feature engineering:
-- Temporal and seasonal features
-- Lag-based historical features
-- Weather-based exogenous features (rainfall)
+• Risk Prediction & Financial Planning: Built a production-grade predictive system for insurance risk management — not just an experimental model. Outputs directly support reserve allocation, pricing strategy, and operational planning decisions.
 
-Advanced preprocessing was used to improve model quality:
-- Outlier capping at the 97th percentile
-- Missing value imputation
-- Feature selection using evolutionary computation with 100 populations and 20 generations
+• Early Warning System: Designed an early warning capability for claim surges using time-series forecasting, enabling the organization to shift from reactive to proactive risk management.
 
-Key performance results:
-- Best model: CatBoost
-- Public Score (MAPE): 1.06%
-- CV Score: 3.05%
-- Outperformed XGBoost (3.24%) and LightGBM (2.47%)
+• Key Findings Translation: Translated technical findings into business insight — claims are influenced by external factors (rainfall, seasonality), not just historical patterns, informing more sophisticated underwriting and risk assessment strategies.`,
+    technicalDescription: `Built a time-series forecasting pipeline using frequency-severity decomposition with advanced feature engineering and evolutionary hyperparameter optimization.
 
-This indicates very high predictive accuracy and stable generalization between validation and leaderboard results.
+Technical Implementation:
 
-Key findings:
-- Claims are influenced not only by history, but also by external factors
-- Claim frequency is driven by lagged total claims and working days
-- Severity is influenced by extreme rainfall and seasonal patterns
-- Weather features show non-linear relevance that traditional analysis could miss
-- Outlier handling improved robustness by reducing variance
-- The model captured seasonality well without unstable drift
+• Forecasting Approach: Implemented time-series forecasting based on frequency-severity decomposition with temporal features, lag-based historical features, and weather-based exogenous features (rainfall data scraped via Selenium).
 
-From a business impact perspective, this project is valuable for:
-- Risk prediction
-- Financial planning
-- Operational strategy
-- Pricing strategy and reserve allocation
+• Model Benchmarking: Benchmarked CatBoost, XGBoost, and LightGBM — CatBoost achieved best performance with 1.06% MAPE (public score) and 3.05% CV score, demonstrating strong generalization.
 
-From an IT Governance perspective, the project:
-- Supports data-driven decision making
-- Provides an early warning system for claim surges
-- Strengthens risk governance and financial control
-- Shows how predictive analytics can shift an organization from reactive to proactive risk management
+• Evolutionary Optimization: Applied evolutionary computation (100 populations × 20 generations) for feature selection and hyperparameter tuning via Genetic Algorithm.
 
-Overall, this is a production-grade predictive system for insurance risk management, not just an experimental model.`,
-    techStack: ["Python", "CatBoost", "XGBoost", "LightGBM", "Evolutionary Computation", "Genetic Algorithm (Hyperparameter Tuning)", "Time Series Forecasting (Recursive Forecast)", "Pandas & NumPy", "Matplotlib / Visualization", "Selenium & BeautifulSoup (Web Scraping Weather Data)"],
+• Data Preprocessing: Implemented outlier capping at 97th percentile, missing value imputation, and advanced feature engineering across 4,096 policy records and 5,781 claim records.
+
+Tech Stack: Python, CatBoost, XGBoost, LightGBM, Genetic Algorithm, Selenium, Pandas, NumPy`,
+    techStack: ["Python", "CatBoost", "XGBoost", "LightGBM", "Evolutionary Computation", "Genetic Algorithm", "Time Series Forecasting", "Pandas & NumPy", "Selenium & BeautifulSoup"],
     image: insuranceImage,
     year: "2026"
   },
   {
     id: 11,
     featured: false,
-    title: "FMCG Personal Care Analytics: Data-Driven Innovation, Forecasting & Product Strategy Optimization",
+    title: "FMCG Personal Care Analytics: Data-Driven Innovation & Product Strategy Optimization",
     category: "Data Analytics & Business Intelligence",
     description: "Analytics on 1M+ FMCG personal care transactions for forecasting, innovation, and cannibalization detection.",
-    longDescription: `This project focuses on leveraging data-driven innovation (DDI) to solve real-world challenges in the highly competitive FMCG personal care industry. Using a large-scale synthetic dataset (2020–2025) consisting of over 1,000,000 transaction records, I conducted comprehensive analysis across sales, marketing performance, and customer feedback.
+    businessDescription: `Leveraged data-driven innovation to solve real-world challenges in the competitive FMCG personal care industry. Analyzed 1M+ transaction records to identify growth drivers, emerging trends, and hidden inefficiencies.
 
-From a business analytics perspective, the project successfully identifies key growth drivers, emerging product trends, and hidden inefficiencies such as product cannibalization, enabling more optimized portfolio strategies. Forecasting models were applied to predict demand patterns, allowing for better inventory planning and campaign timing, directly impacting operational efficiency.
+Key Business Contributions:
 
-From an IT Governance standpoint, this project demonstrates how structured data pipelines and analytical frameworks can support evidence-based decision making, aligning IT capabilities with business objectives. The integration of multiple datasets (sales, products, marketing, and reviews) reflects real-world data governance challenges, including data consistency, integration, and reliability.
+• Growth Driver Identification: Analyzed sales, marketing performance, and customer feedback across 1M+ transactions to identify key growth drivers and emerging product trends.
 
-Key impact delivered:
-- Improved decision accuracy through data-backed insights on product performance and market trends
-- Enhanced business strategy alignment via actionable insights for marketing and product teams
-- Early detection of product cannibalization, reducing revenue leakage
-- Forecasting-driven planning, increasing efficiency in supply chain and campaign execution
-- Demonstrated scalability in handling high-volume data (1M+ rows) with efficient processing
+• Cannibalization Detection: Early detection of product cannibalization patterns — reducing revenue leakage by identifying when new products erode existing product sales rather than expanding market share.
 
-Performance-wise, the project excels in:
-- Handling large datasets with efficient preprocessing and analysis
-- Generating high-signal insights rather than just descriptive outputs
-- Producing outputs that are directly translatable into business decisions and governance frameworks
+• Portfolio Strategy Optimization: Produced actionable insights for marketing and product teams to optimize portfolio strategies, campaign timing, and inventory planning.
 
-This project showcases the role of a data-driven approach in bridging technical execution (data processing, modeling) with strategic business value (decision support, governance alignment).`,
-    techStack: ["Python (Pandas, NumPy, Scikit-learn)", "Data Visualization (Matplotlib, Seaborn)", "Time Series Forecasting", "Data Preprocessing & Feature Engineering", "Business Analytics & Insight Generation"],
+• Data Governance Demonstration: Integrated multiple datasets (sales, products, marketing, reviews) demonstrating real-world data governance challenges including data consistency, integration, and reliability.`,
+    technicalDescription: `Built a comprehensive analytics pipeline processing 1M+ transaction records with forecasting models, cannibalization detection, and multi-dataset integration.
+
+Technical Implementation:
+
+• Large-Scale Data Processing: Efficiently handled 1M+ rows with optimized Pandas preprocessing pipelines — merging sales, products, marketing, and reviews datasets while maintaining data integrity.
+
+• Demand Forecasting: Applied time series forecasting models to predict demand patterns for campaign timing and inventory planning optimization.
+
+• Cannibalization Analysis: Implemented statistical analysis to detect product cannibalization patterns across categories, measuring cross-elasticity and revenue displacement effects.
+
+• Visualization & Reporting: Built comprehensive visualization dashboards using Matplotlib and Seaborn for stakeholder communication and insight presentation.
+
+Tech Stack: Python, Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn, Time Series Forecasting`,
+    techStack: ["Python", "Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Seaborn", "Time Series Forecasting"],
     image: fmcgImage,
     year: "2025"
   },
@@ -189,443 +241,347 @@ This project showcases the role of a data-driven approach in bridging technical 
     featured: false,
     title: "Neuro AI: Multimodal Student Engagement Analytics System",
     category: "AI/ML & EdTech",
-    description: "Real-time multimodal biometric system solving the 'Black Box Problem' in online education by integrating EEG, eye-tracking, and face recognition for objective engagement measurement.",
-    longDescription: `Neuro AI was designed to address a fundamental challenge in digital education: the inability to measure student engagement objectively. Conventional methods (questionnaires, post-tests) are subjective and fail to capture real-time cognitive and attentional dynamics. This research project integrates three complementary neuroimaging and computer vision modalities into a unified, low-cost system that operates in real-time on standard consumer hardware.
+    description: "Real-time multimodal biometric system integrating EEG, eye-tracking, and face recognition for objective engagement measurement in online education.",
+    businessDescription: `Addressed the "Black Box Problem" in online learning — the inability to objectively measure student engagement. Designed the system as a decision-support tool for EdTech platforms and educational institutions.
 
-Business Problem & IT Governance Context:
-The "Black Box Problem" in online learning represents a critical operational and quality assurance gap for EdTech platforms and institutions. Without objective engagement data, educators cannot:
-- Identify which video segments cause confusion or disengagement
-- Perform A/B testing on content delivery methods
-- Adapt learning materials in real-time to student cognitive state
-- Verify authentic student participation in remote assessments
-This system bridges that gap through a governance-aligned, data-driven approach.
+Key Business Contributions:
 
-Technical Architecture & Integration Strategy:
-The system employs a 1-laptop integration model with three synchronized data streams:
-1. Neural Data (EEG): Muse S Headband (4-channel, 256Hz) captures raw brain activity; backend service (Python Flask) integrates Lab Streaming Layer (LSL) for Bluetooth data acquisition and real-time marker synchronization with video stimulus
-2. Visual Attention (Eye Tracking): Browser-based MediaPipe Face Mesh detects 474 facial landmarks in real-time (30 FPS); client-side processing extracts pupil position and gaze direction using geometric estimation (no specialized hardware required)
-3. Identity Verification (Face Recognition): OpenCV + face_recognition library enables multi-person face detection and encoding (128-dimensional embeddings); auto-capture and presence validation prevent fraudulent participation
+• Business Problem Framing: Identified the "Black Box Problem" as a critical operational and quality assurance gap — without objective engagement data, educators cannot identify confusion points, perform content A/B testing, or verify authentic participation.
 
-Key Insights & Information Generated:
+• Cost Disruption Analysis: Demonstrated that consumer-grade hardware ($250-400 headband + webcam) can replace $3,000-5,000 professional lab-grade equipment, making neuroscience-based education research accessible to any institution.
 
-- Cognitive Load Classification: EEG preprocessing pipeline (Notch Filter 50Hz, Bandpass 0.5-45Hz, ICA artifact removal) extracts Power Spectral Density features; machine learning models distinguish between High Arousal/Focused vs Low Arousal/Bored states
-- Visual Attention Profile: Real-time gaze direction classification (Center/Left/Right/Up/Down) with smoothing buffer reveals attention distribution across video segments and identifies distraction triggers
-- Presence & Participation Validation: Face encoding comparison (Euclidean distance < 0.6 threshold) confirms student identity and active engagement with learning material
-- Temporal Engagement Dynamics: Time-series data (CSV format) maps engagement fluctuations across video duration, enabling segment-level quality assessment and content optimization
+• ROI Validation Framework: Designed the system to provide ROI validation for EdTech investments by linking video quality metrics to measurable learning outcomes and engagement data.
 
-Performance Metrics & System Excellence:
+• Scalability Assessment: Evaluated deployment scalability — web-based architecture (Next.js + Flask) enables deployment across multiple campuses and LMS integrations without infrastructure changes.
 
-Processing Performance:
-- Eye Tracking: 30 FPS real-time processing on webcam; negligible client-side latency
-- EEG Signal Quality: 256 Hz sampling with robust artifact removal achieving 48-51% accuracy (LOSO Leave-One-Subject-Out cross-validation) on 8 respondents
-- Multi-Modal Fusion: Time-locked synchronization across three asynchronous data sources (neural, visual, biometric)
+• Data Privacy by Design: Implemented face encoding anonymization — no raw biometric imagery retained, ensuring compliance with privacy requirements.`,
+    technicalDescription: `Built a full-stack multimodal engagement analytics system integrating three real-time data streams (EEG, eye tracking, face recognition) on a single consumer laptop.
 
-Operational Impact:
-- Eliminated need for $3000–5000+ professional eye-tracking systems (Tobii, Alea)
-- Cost of entry: consumer-grade webcam + Muse Headband ($250–400)
-- Deployment: Web-based (Next.js frontend + Flask backend) enables scalability across institutions
+Technical Implementation:
 
-Business & IT Governance Relevance:
+• EEG Pipeline: Built end-to-end EEG pipeline from raw signal acquisition (Muse S Headband via Lab Streaming Layer) through preprocessing (Notch Filter 50Hz, Bandpass 0.5-45Hz, ICA artifact removal) to Power Spectral Density feature extraction. Benchmarked 7 ML models (SimpleEEGNet, Autoencoder, XGBoost, SVM, Random Forest) achieving 48-51% accuracy on LOSO cross-validation across 8 subjects.
 
-For Business Analysts:
-- Transforms subjective engagement into measurable, actionable data
-- Enables data-driven content A/B testing for content creators
-- Supports adaptive learning systems that auto-adjust difficulty based on cognitive load
-- Provides ROI validation for EdTech investments (video quality metrics linked to learning outcomes)
+• Eye Tracking System: Implemented browser-based MediaPipe Face Mesh detecting 474 facial landmarks at 30 FPS for real-time gaze classification (Center/Left/Right/Up/Down) using geometric estimation — no specialized hardware required.
 
-For IT Governance & CIOs:
-- Data Privacy by Design: Implements face encoding anonymization; no raw biometric imagery retained
-- System Reliability: Real-time processing on single device eliminates network dependency
-- Scalability Path: Modular architecture allows deployment across multiple campuses or LMS integrations
-- Risk Mitigation: Multimodal fusion reduces single-modality false positives; EEG validates internal state, eye-tracking validates external focus, face recognition validates identity
+• Face Recognition: Built identity verification using OpenCV + face_recognition library with 128-dimensional embeddings and Euclidean distance matching (< 0.6 threshold) for presence validation.
 
-Key Findings & Research Contribution:
+• Multi-Modal Synchronization: Achieved precise time-locking between EEG acquisition (external device), video stimulus (web frontend), visual processing (browser), and face detection (webcam) — a non-trivial orchestration challenge.
 
-1. Low-Cost Accessibility: Validated that consumer-grade hardware (webcam + affordable EEG) can replace laboratory-grade equipment, democratizing neuroscience-based education research
-2. Real-Time Feasibility: Demonstrated stable real-time processing of three heterogeneous data streams on a single laptop without significant latenency
-3. Subject Variability Challenge: Inter-individual EEG variability (highlighted in research roadmap) remains a key frontier; LOSO validation shows models generalize modestly but reliably across subjects
-4. Integration Complexity Success: Achieved precise time-locking between EEG acquisition (external device), video stimulus (web frontend), visual processing (browser), and face detection (webcam), a non-trivial orchestration challenge
+• Full-Stack Deployment: Next.js frontend + Flask backend with real-time data streaming via WebSocket and CSV-based temporal data export.
 
-Strategic Impact for Educational Institutions:
-
-- Moves from reactive (post-hoc surveys) to proactive (real-time) engagement monitoring
-- Enables evidence-based instructional design decisions
-- Supports compliance requirements for online learning quality assurance
-- Reduces dropout risk by early detection of disengagement signals
-
-Next Phase Roadmap:
-- Full multimodal data fusion with rule-based and ML-based approaches
-- Expansion of participant pool to improve model generalization
-- Integration into production LMS/EdTech platforms
-- Longitudinal studies linking engagement metrics to learning outcomes`,
-    techStack: ["Next.js (Frontend)", "Python Flask (Backend)", "Muse S Headband (EEG)", "MediaPipe Face Mesh", "OpenCV", "face_recognition", "cvzone", "Streamlit", "SimpleEEGNet", "Autoencoder", "XGBoost", "SVM", "Random Forest", "PyTorch", "ICA (Independent Component Analysis)", "Welch PSD", "Lab Streaming Layer (LSL)", "Pickle", "JSON", "CSV", "Geometric Gaze Estimation"],
+Tech Stack: Next.js, Flask, Muse S Headband, MediaPipe, OpenCV, face_recognition, PyTorch, XGBoost, LSL`,
+    techStack: ["Next.js", "Flask", "Muse S Headband", "MediaPipe", "OpenCV", "face_recognition", "PyTorch", "XGBoost", "Lab Streaming Layer"],
     image: eegImage,
     year: "2025"
   },
   {
     id: 9,
     featured: false,
-    title: "COPPA Risk Detection System: Machine Learning for Children's Data Privacy Compliance in Mobile Apps",
+    title: "COPPA Risk Detection System: ML for Children's Data Privacy Compliance",
     category: "Data Privacy & Compliance",
     description: "Machine learning system for identifying mobile apps at risk of violating children's data privacy regulations (COPPA).",
-    longDescription: `This project addresses a real digital-era problem: the growing use of mobile apps by children is often not matched by adequate data protection. Regulations such as COPPA require app developers to protect children's privacy, but in practice many apps may violate these rules without systematic detection.
+    businessDescription: `Addressed the growing risk of children's data privacy violations in mobile apps. Designed a risk assessment framework that translates regulation into measurable analytical metrics.
 
-To solve this, I built a binary classification system that predicts whether an app is at risk of COPPA non-compliance (coppaRisk: true/false).
+Key Business Contributions:
 
-From a business and governance perspective, the solution is highly relevant because it:
-- Helps app marketplaces and regulators screen risky applications automatically
-- Reduces legal risk and compliance failure potential
-- Supports a data privacy governance framework in digital ecosystems
-- Provides an early warning system for apps that may violate regulations
+• Regulatory Translation: Translated COPPA regulation requirements into measurable analytical metrics — combining app characteristics, user scale proxies, privacy signals, and developer metadata for multi-factor risk assessment.
 
-Analytical approach and data strategy:
-- App characteristics: genre and category
-- User scale proxy: download ranges as an indicator of target audience
-- Privacy-related signals: privacy policy features
-- Developer metadata
+• Automated Compliance Screening: Designed a system that helps app marketplaces and regulators automatically screen risky applications, reducing legal risk and compliance failure potential.
 
-This reflects how a Business Analyst or IT Auditor works: not by looking at one dimension only, but by combining multiple indicators for risk assessment.
+• Risk Prioritization Framework: Built a data-driven risk assessment framework that supports risk prioritization and mitigation strategy — popular apps are not automatically safe, demonstrating the importance of systematic classification.
 
-Main workflow:
-- Data preprocessing and cleaning
-- Feature engineering to capture risk signals
-- Model training for binary classification (true/false risk)
-- Evaluation to ensure the model is robust and reliable
+• Data Privacy Governance: Supported a data privacy governance framework in digital ecosystems by providing an early warning system for apps that may violate regulations.`,
+    technicalDescription: `Built a binary classification system predicting COPPA non-compliance risk using multi-dimensional feature engineering across app metadata, privacy signals, and developer characteristics.
 
-High-value findings:
-- Apps targeting children, based on download behavior and category, tend to have higher risk when privacy signals are weak
-- Developer and metadata features are important indicators of non-compliance risk
-- Popular apps are not automatically safe, showing the importance of risk-based classification rather than assumptions
+Technical Implementation:
 
-This makes the output valuable for compliance teams, IT governance, product teams, and risk management.
+• Feature Engineering: Combined multiple risk indicators — app genre/category, download ranges (audience proxy), privacy policy features, and developer metadata — for comprehensive risk signal capture.
 
-From an IT Governance perspective, the project:
-- Supports regulatory compliance with COPPA and data privacy laws
-- Implements a data-driven risk assessment framework
-- Aligns IT systems with compliance requirements
-- Improves data protection governance and audit readiness
+• Classification Pipeline: Built binary classification (coppaRisk: true/false) with data preprocessing, feature engineering, model training, and evaluation pipeline.
 
-From a Business Analyst perspective, the project:
-- Translates regulation into measurable analytical metrics
-- Produces data-backed insights for decision-making
-- Applies multi-factor analysis across behavior, metadata, and policy signals
-- Supports risk prioritization and mitigation strategy
+• Multi-Factor Analysis: Implemented cross-dimensional analysis combining behavioral, metadata, and policy signals rather than single-dimension text-only analysis.
 
-Overall, this is not just a model, but a decision support system for compliance and risk management.`,
-    techStack: ["Python (Pandas, NumPy)", "Scikit-learn (Classification Models)", "Data Preprocessing & Feature Engineering", "Exploratory Data Analysis (EDA)", "Model Evaluation (Accuracy, Precision, Recall, F1 Score)"],
+• Model Evaluation: Comprehensive evaluation using Accuracy, Precision, Recall, and F1 Score to ensure robust and reliable predictions.
+
+Tech Stack: Python, Pandas, NumPy, Scikit-learn, Feature Engineering, EDA`,
+    techStack: ["Python", "Pandas", "NumPy", "Scikit-learn", "Feature Engineering", "EDA"],
     image: childrenImage,
     year: "2025"
   },
   {
     id: 8,
     featured: false,
-    title: "Competitive Market Intelligence: Consumer Sentiment Analysis & Topic Modeling (Advan vs. Xiaomi)",
+    title: "Competitive Market Intelligence: Consumer Sentiment & Topic Modeling (Advan vs. Xiaomi)",
     category: "Business Analytics",
-    description: "Converts consumer reviews into actionable QC and after-sales governance insights.",
-    longDescription: `Indonesia's consumer technology market is dominated by imports (e.g., Xiaomi), creating structural challenges for local brands such as Advan. This project objectively diagnoses those root causes by extracting and analyzing customer reviews from Tokopedia using Selenium and BeautifulSoup.
+    description: "Converts consumer reviews into actionable quality control and after-sales governance insights through NLP and topic modeling.",
+    businessDescription: `Diagnosed root causes of competitive disadvantage for local brand Advan against import giant Xiaomi through structured analysis of consumer sentiment data.
 
-The system implements a comprehensive NLP pipeline—cleaning, normalization, negation handling, stemming, and merging—to transform raw review text into structured features. Using supervised learning combined with semi-supervised annotation, models classify sentiment with accuracy >90% and quantify competitive realities: Xiaomi reports ~85.9% positive and ~5.1% negative reviews, while Advan records ~83% positive and ~6% negative.
+Key Business Contributions:
 
-The strategic impact is realized through Latent Dirichlet Allocation (LDA) topic modeling, which exposes five critical failure modes driving negative sentiment for Advan: Dead on Arrival (DOA) products; product damage on delivery; substandard multimedia and physical quality; poor camera performance and general performance issues; and weaknesses in return & after-sales service.
+• Competitive Intelligence: Quantified competitive realities — Xiaomi reports ~85.9% positive vs ~5.1% negative, while Advan records ~83% positive vs ~6% negative, providing data-backed competitive positioning analysis.
 
-These findings provide empirically grounded signals for senior management, indicating weaknesses in Supply Chain Management and Quality Assurance governance, and revealing Service Level Agreement (SLA) gaps in incident handling and after-sales support. The analytics enable precise internal audits and targeted governance interventions to recover market share from global competitors.`,
-    techStack: ["Selenium", "BeautifulSoup", "Python", "Scikit-learn", "Semi-Supervised Annotation", "LDA", "Pandas", "NumPy", "Market Research Analytics"],
+• Failure Mode Identification: Exposed five critical failure modes driving negative sentiment: Dead on Arrival (DOA) products, delivery damage, substandard multimedia quality, poor camera performance, and weak return/after-sales service.
+
+• Governance Recommendations: Provided empirically grounded signals for senior management indicating weaknesses in Supply Chain Management and Quality Assurance governance, plus SLA gaps in incident handling and after-sales support.
+
+• Strategic Audit Input: Analytics enable precise internal audits and targeted governance interventions to recover market share from global competitors.`,
+    technicalDescription: `Built an end-to-end NLP pipeline from web scraping to sentiment classification and topic modeling for competitive intelligence analysis.
+
+Technical Implementation:
+
+• Web Scraping: Extracted customer reviews from Tokopedia using Selenium and BeautifulSoup for automated data collection.
+
+• NLP Pipeline: Implemented comprehensive text preprocessing — cleaning, normalization, negation handling, stemming, and merging — to transform raw review text into structured features.
+
+• Sentiment Classification: Built supervised learning models combined with semi-supervised annotation, achieving >90% classification accuracy.
+
+• Topic Modeling: Applied Latent Dirichlet Allocation (LDA) to discover five critical failure mode clusters from negative sentiment data.
+
+Tech Stack: Python, Selenium, BeautifulSoup, Scikit-learn, LDA, TF-IDF, Pandas`,
+    techStack: ["Python", "Selenium", "BeautifulSoup", "Scikit-learn", "LDA", "TF-IDF", "Pandas"],
     image: produkImage,
     year: "2025"
   },
   {
     id: 7,
     featured: false,
-    title: "Food Price Forecasting System for Indonesia: Multivariate Analytics & Time Series Modeling for Policy-Driven Insights",
+    title: "Food Price Forecasting System for Indonesia",
     category: "Data Analytics & Policy Support",
     description: "Forecasting system predicting food commodity prices across 34 Indonesian provinces using multivariate analysis and time series models.",
-    longDescription: `This project addresses a critical national issue: food price volatility and its impact on economic stability, inflation, and public welfare. By leveraging multivariate analysis and time series forecasting, I built an end-to-end analytical pipeline predicting prices for 13 key food commodities across 34 provinces in Indonesia.
+    businessDescription: `Addressed food price volatility and its impact on economic stability, inflation, and public welfare. Designed a decision support system for policy-driven price monitoring across 13 commodities and 34 provinces.
 
-From a business and governance perspective, the project delivers strong decision-support capabilities. Integration of external covariates—exchange rates, global commodity prices, import-export data, and Google Trends—enables a holistic forecasting approach aligned with real-world policy and business environments.
+Key Business Contributions:
 
-Key IT Governance principles embedded:
-- Data standardization and consistency across all commodities
-- Reproducibility of analytical processes
-- Scalability for enterprise-level implementation
+• Policy Decision Support: Built a forecasting system that supports proactive policy and supply chain decisions by enabling early detection of price fluctuations across 13 key food commodities.
 
-Multiple models were benchmarked (Linear Regression, LSTM, ARIMA, XGBoost), with XGBoost delivering superior performance: MAPE ~0.1996 (validation), MAPE ~0.05465 (testing)—strong predictive accuracy for volatile food price data.
+• Holistic Risk Assessment: Integrated external covariates (exchange rates, global commodity prices, import-export data) for a comprehensive forecasting approach aligned with real-world policy and business environments.
 
-Key insights and impact:
-- Identified highly influential external factors (global prices, exchange rates) affecting domestic food prices
-- Revealed that Google Trends has low correlation, preventing misleading assumptions
-- Highlighted critical role of preprocessing in model performance
-- Enabled early detection of price fluctuations for proactive policy and supply chain decisions
+• Data Governance Standards: Applied data standardization, consistency across all commodities, reproducibility of analytical processes, and scalability for enterprise-level implementation.
 
-From a performance standpoint, the project excels in:
-- Handling multi-dimensional, multi-region time series data
-- Producing actionable insights beyond predictions
-- Achieving low error rates (MAPE ~5%), strong for real-world economic forecasting
-- Demonstrating robust pipeline architecture, scalable into production systems
+• Misleading Assumption Prevention: Revealed that Google Trends has low correlation with food prices, preventing misleading assumptions in policy analysis.`,
+    technicalDescription: `Built an end-to-end multivariate time series forecasting pipeline predicting prices for 13 commodities across 34 provinces with external covariates.
 
-From IT Governance / Business Analysis perspective:
-- Aligns data systems with business objectives (policy, economic stability)
-- Demonstrates analytics as a decision support system (DSS)
-- Strong emphasis on data quality, integration, and governance
-- Translates technical outputs into strategic stakeholder insights
+Technical Implementation:
 
-This project bridges technical ML implementation with real-world strategic impact, highly relevant for IT Consulting, IT Audit, and Business Analysis roles.`,
-    techStack: ["Python (Pandas, NumPy, Scikit-learn)", "XGBoost", "LSTM", "ARIMA", "Data Preprocessing (Interpolation, Standardization, Sequencing)", "Exploratory Data Analysis", "Data Pipeline Engineering", "Visualization (Matplotlib, Seaborn)"],
+• Multi-Model Benchmarking: Benchmarked Linear Regression, LSTM, ARIMA, and XGBoost — XGBoost delivered superior performance with MAPE ~5.5% (testing), strong for volatile food price data.
+
+• Multivariate Feature Engineering: Integrated exchange rates, global commodity prices, import-export data, and Google Trends as external covariates for comprehensive feature sets.
+
+• Multi-Region Pipeline: Built scalable pipeline handling multi-dimensional, multi-region time series data across 34 provinces with data interpolation and standardization.
+
+• Preprocessing Pipeline: Implemented interpolation for missing values, standardization across commodities, and sequence generation for LSTM input preparation.
+
+Tech Stack: Python, XGBoost, LSTM, ARIMA, Pandas, NumPy, Matplotlib, Seaborn`,
+    techStack: ["Python", "XGBoost", "LSTM", "ARIMA", "Pandas", "NumPy", "Matplotlib", "Seaborn"],
     image: foodpriceImage,
     year: "2025"
   },
   {
     id: 6,
     featured: false,
-    title: "Predictive Maintenance System: Machine Breakdown Detection using Anomaly Detection & Deep Learning",
+    title: "Predictive Maintenance System: Machine Breakdown Detection",
     category: "Data Analytics & Industrial IoT",
-    description: "Predictive maintenance system detecting machine anomalies and predicting breakdown status using deep learning and anomaly detection.",
-    longDescription: `This project addresses a critical industrial challenge: unplanned machine downtime and operational inefficiency. By leveraging machine learning on sensor data—temperature, vibration, and operational parameters—the system identifies potential failures before they occur.
+    description: "Predictive maintenance system detecting machine anomalies from 13M+ sensor records using deep learning and anomaly detection.",
+    businessDescription: `Addressed unplanned machine downtime and operational inefficiency — a critical industrial challenge where predictive maintenance can reduce costs by 20%, increase productivity by 25%, and reduce breakdowns by 30%.
 
-From a business impact perspective, predictive maintenance delivers significant value. Industry studies show it can:
-- Reduce maintenance costs by up to 20%
-- Increase productivity by up to 25%
-- Reduce breakdown incidents by up to 30%
+Key Business Contributions:
 
-The project processes large-scale data (~13M records) from multiple sources (main data, machine data, area data). Key challenges included:
-- Data duplication from merging (13M → 16.5M)
-- Mislabeling in ~942k records that could degrade model performance
-- High outliers across numerical features
+• Operational Impact Quantification: Positioned the system against industry benchmarks — 20% maintenance cost reduction, 25% productivity increase, and 30% fewer breakdown incidents.
 
-All issues resolved through a robust preprocessing pipeline:
-- Data deduplication & cleaning
-- Mislabel correction based on business logic
-- Robust Scaler for outlier handling
-- Feature selection & engineering to improve signal-to-noise ratio
+• Data Quality Governance: Resolved real-world data governance challenges — deduplicated 13M→16.5M record inflation, corrected ~942K mislabeled records using business logic, and implemented robust preprocessing to ensure data integrity.
 
-Key analytical insights uncovered:
-- Imbalanced machine status distribution (Normal 61%, Warning 20%, Breakdown 19%), impacting modeling strategy
-- No significant correlation between features (except temperature variables), requiring the model to capture complex non-linear patterns
-- High-risk machines and areas identified (e.g., Chinese-manufactured machines, regions like Jogja & Banten)
+• Risk Zone Identification: Identified high-risk machines (Chinese-manufactured) and geographic risk areas (Jogja & Banten regions), enabling targeted maintenance resource allocation.
 
-Modeling approach combines:
-- Anomaly Detection (Autoencoder) for detecting abnormal patterns
-- Dimensionality reduction (PCA) for computational efficiency
-- Threshold optimization balancing false positives vs false negatives
+• Decision Support System: Produced actionable maintenance decision outputs — early anomaly detection providing lead time for preventive intervention before breakdown occurs.`,
+    technicalDescription: `Built an anomaly detection system processing 13M+ industrial sensor records using deep learning autoencoders and dimensionality reduction.
 
-From a performance standpoint, the project excels at:
-- Processing high-volume industrial data (13M+ rows) efficiently
-- Handling real-world data challenges (noise, imbalance, mislabeling)
-- Early anomaly detection before breakdown occurs
-- Producing actionable insights for maintenance decision-making
+Technical Implementation:
 
-From IT Governance & Business Analysis perspective:
-- Applies data governance principles (quality, consistency, integrity) in practice
-- Supports decision support systems (DSS) for operational maintenance
-- Links data analytics with business impact (cost reduction & efficiency)
-- Demonstrates IT-business alignment for continuity & risk management
+• Large-Scale Data Processing: Processed 13M+ records from multiple sources (main data, machine data, area data) with deduplication, mislabel correction, and Robust Scaler outlier handling.
 
-This project showcases end-to-end problem solving: from data chaos to insight to decision-ready system.`,
-    techStack: ["Python (Pandas, NumPy)", "Scikit-learn", "Deep Learning (Autoencoder)", "PCA (Dimensionality Reduction)", "Robust Scaler", "Matplotlib (EDA & Visualization)", "Data Preprocessing & Feature Engineering"],
+• Autoencoder Anomaly Detection: Implemented deep learning Autoencoder for detecting abnormal sensor patterns (temperature, vibration, operational parameters).
+
+• Dimensionality Reduction: Applied PCA for computational efficiency on high-dimensional sensor feature space.
+
+• Threshold Optimization: Built threshold optimization pipeline balancing false positives vs false negatives for production-ready alert generation.
+
+Tech Stack: Python, Scikit-learn, Autoencoder, PCA, Pandas, NumPy, Matplotlib`,
+    techStack: ["Python", "Scikit-learn", "Autoencoder", "PCA", "Robust Scaler", "Pandas", "NumPy", "Matplotlib"],
     image: machineImage,
     year: "2025"
   },
   {
     id: 5,
     featured: false,
-    title: "Benteng Informasi Merah Putih: Digital Propaganda Detection & Social Network Intelligence System",
+    title: "Benteng Informasi Merah Putih: Digital Propaganda Detection & Social Network Intelligence",
     category: "Cyber Intelligence & Governance",
     description: "End-to-end data mining system for detecting coordinated social-media propaganda using anomaly detection, social network analysis, and topic modeling.",
-    longDescription: `This project addresses one of the most critical digital-era challenges: information warfare and coordinated propaganda on social media. Using public discourse on X (Twitter) as a case study, the system was designed to computationally detect, analyze, and deconstruct disinformation propagation patterns.
+    businessDescription: `Addressed information warfare and coordinated propaganda on social media — contributing to national digital sovereignty and providing a decision-support framework for government analysts.
 
-From an impact perspective, this project contributes directly to:
-- Strengthening national digital sovereignty
-- Early detection of disinformation campaigns
-- Providing a decision-support framework for stakeholders (government, analysts, etc.)
-- Reducing public-opinion manipulation risk
+Key Business Contributions:
 
-The dataset contains approximately 4,600 tweets (cleaned to ~4,396) with combined features:
-- Text content (full_text)
-- Account metadata (followers, following, account age)
-- Engagement metrics (retweet, reply, quote)
+• Digital Sovereignty Support: Designed an intelligence system that directly supports early detection of disinformation campaigns and reduces public-opinion manipulation risk.
 
-One major strength is its hybrid feature-engineering approach:
-- Text-based features (TF-IDF)
-- Behavioral features (account activity and interaction patterns)
+• Multi-Layered Narrative Analysis: Discovered that propaganda operates with a multi-layered narrative strategy (political intervention, legal processes, justice debates) — not a single-message pattern — informing more sophisticated counter-disinformation strategies.
 
-This approach is more powerful than text-only analysis because propaganda often appears in behavioral coordination patterns, not only in wording.
+• Behavioral Pattern Detection: Demonstrated that propaganda often appears in behavioral coordination patterns, not only in wording — justifying the hybrid feature-engineering approach combining text and behavioral signals.
 
-High-value insights generated:
-- Detected anomalous, non-organic accounts using Isolation Forest
-- Uncovered coordinated account clusters through Social Network Analysis (degree centrality)
-- Showed that narrative spread is structured and actor-centered, not random
+• Governance-Aligned Framework: Built a reproducible and scalable analytical framework aligned with risk management and strategic national objectives.`,
+    technicalDescription: `Built a hybrid NLP + social network analysis pipeline for computational detection and deconstruction of disinformation propagation patterns on X (Twitter).
 
-Through LDA topic modeling, the system identified three core narratives:
-- High-level political intervention
-- Legal and judicial processes
-- Justice debates (legal resolution vs political resolution)
+Technical Implementation:
 
-This indicates propaganda operates with a multi-layered narrative strategy, not a single-message pattern.
+• Hybrid Feature Engineering: Combined text-based features (TF-IDF) with behavioral features (account activity, follower patterns, engagement metrics) for more comprehensive propaganda detection than text-only approaches.
 
-From an IT Governance / Business Analyst lens, the project is highly relevant because it:
-- Applies data governance principles (cleaning, consistency, feature integrity)
-- Builds a reproducible and scalable analytical framework
-- Supports risk management through disinformation-risk detection
-- Aligns IT systems with strategic national objectives (digital sovereignty)
-- Translates complex data into actionable decision intelligence
+• Anomaly Detection: Applied Isolation Forest to detect anomalous, non-organic accounts based on behavioral patterns and account metadata across ~4,600 tweets.
 
-Overall, the output is not just a model, but strategic intelligence ready to support real decision-making.`,
-    techStack: ["Python (Pandas, NumPy)", "Scikit-learn (Isolation Forest, TF-IDF)", "NLP (Tokenizing, Stemming, Filtering)", "NetworkX (Social Network Analysis)", "LDA (Topic Modeling)", "Iterative Imputer (Missing Value Handling)", "Data Preprocessing & Feature Engineering"],
+• Social Network Analysis: Used NetworkX for degree centrality analysis to uncover coordinated account clusters, revealing that narrative spread is structured and actor-centered.
+
+• Topic Modeling: Implemented LDA to identify three core propaganda narratives — high-level political intervention, legal/judicial processes, and justice debates.
+
+Tech Stack: Python, Scikit-learn, Isolation Forest, TF-IDF, NetworkX, LDA, Pandas`,
+    techStack: ["Python", "Scikit-learn", "Isolation Forest", "TF-IDF", "NetworkX", "LDA", "Pandas"],
     image: sosmedImage,
     year: "2025"
   },
   {
     id: 3,
     featured: false,
-    title: "Data-Driven Policy Analysis for Tackling Triple Burden of Malnutrition (TBM) using Global Comparative Insights",
+    title: "Data-Driven Policy Analysis for Tackling Triple Burden of Malnutrition (TBM)",
     category: "Public Policy Analytics",
-    description: "Comparative policy analysis of Indonesia's nutrition performance against global and ASEAN benchmarks to identify gaps in tackling Triple Burden of Malnutrition.",
-    longDescription: `This project addresses a major public-health challenge: Indonesia's Triple Burden of Malnutrition (TBM), which combines stunting, obesity, and micronutrient deficiency and has a direct impact on human capital quality and long-term productivity.
+    description: "Comparative policy analysis of Indonesia's nutrition performance against global and ASEAN benchmarks to identify governance gaps.",
+    businessDescription: `Conducted data-driven policy analysis addressing Indonesia's Triple Burden of Malnutrition — combining stunting, obesity, and micronutrient deficiency impacting human capital quality.
 
-The approach is not merely descriptive, but a data-driven policy analysis comparing Indonesia's nutrition performance with countries that have been successful in reducing TBM.
+Key Business Contributions:
 
-Data and analytical approach:
-- Uses global SDGs and nutrition datasets
-- Performs trend analysis across 2000–2022 and 2012–2022
-- Visualizes distribution and time-series trends for stunting and overweight/obesity
-- Benchmarks performance against ASEAN countries and best-performing nations
+• Gap Analysis: Benchmarked Indonesia's nutrition performance against best-performing nations, revealing clear governance gaps — stunting decreased by only -9.40% (2000-2022) while obesity increased by +7.50%.
 
-Key findings:
-- Indonesia is still lagging in stunting reduction
-- Stunting decreased by only -9.40% (2000–2022) and -3.60% in the last 10 years
-- Indonesia remains above the global median, indicating the issue is still serious
-- Obesity increased by +7.50% (2000–2022), showing that policy is not adaptive enough to lifestyle change
-- Benchmarking reveals clear governance gaps compared with countries such as Bangladesh, Tajikistan, and Cambodia
+• Root Cause Identification: Identified that the main issue is not policy availability, but weak cross-sector integration, limited data-driven targeting, and inefficient field implementation.
 
-The project also highlights that the main issue is not only policy availability, but:
-- Weak cross-sector integration
-- Limited data-driven targeting
-- Inefficient field implementation
+• Strategic Policy Recommendations: Produced evidence-based recommendations from global benchmarking against countries like Bangladesh, Tajikistan, and Cambodia.
 
-Why this project is impactful:
-- Transforms global data into concrete policy insight
-- Supports policy evaluation and strategic planning
-- Identifies real gaps between Indonesia and best-performing countries
-- Provides actionable recommendations based on evidence
+• KPI-Driven Governance: Emphasized indicator-based monitoring and KPI-driven governance for nutrition policy effectiveness assessment.`,
+    technicalDescription: `Built a comparative analytics pipeline using global SDGs and nutrition datasets for trend analysis across 2000-2022 with geographic benchmarking.
 
-From a Business Analyst perspective, this project:
-- Identifies root causes based on data
-- Conducts gap analysis between current and ideal state
-- Produces strategic recommendations from global benchmarking
+Technical Implementation:
 
-From an IT Governance / Data Governance perspective, this project:
-- Shows the importance of data quality and accessibility
-- Supports data-driven policy making
-- Emphasizes indicator-based monitoring and KPI-driven governance
+• Trend Analysis: Implemented time-series trend analysis across 2000-2022 and 2012-2022 periods for stunting and overweight/obesity metrics.
 
-Overall, the project demonstrates that major malnutrition challenges are not just about lack of policy, but lack of integrated insight and governance supported by data.`,
-    techStack: ["Python (Data Analysis & Visualization)", "Pandas", "Matplotlib / Seaborn", "Statistical Analysis (Trend & Distribution)", "Comparative Policy Analysis", "SDGs Open Data", "Data Visualization (Time Series & Distribution)"],
+• Distribution Visualization: Built distribution and time-series visualizations benchmarking Indonesia against ASEAN countries and best-performing nations.
+
+• Geographic Comparison: Automated multi-country comparison pipeline with standardized metrics for fair cross-national benchmarking.
+
+• Statistical Analysis: Applied statistical trend and distribution analysis on SDGs open data to identify significant patterns and outliers.
+
+Tech Stack: Python, Pandas, Matplotlib, Seaborn, SDGs Open Data`,
+    techStack: ["Python", "Pandas", "Matplotlib", "Seaborn", "Statistical Analysis", "SDGs Open Data"],
     image: malnutritionImage,
     year: "2024"
   },
   {
     id: 2,
     featured: false,
-    title: "Sundahub: Digital Marketplace for Scaling Sundanese Cultural Services through Data-Driven Marketing & Platform Strategy",
+    title: "Sundahub: Digital Marketplace for Sundanese Cultural Services",
     category: "Digital Marketplace & Strategy",
-    description: "Website-based marketplace connecting Sundanese artists and cultural performers with commercial demand using data-driven targeting and digital marketing.",
-    longDescription: `Sundahub was built to solve a clear market gap: high supply of Sundanese artists and cultural practitioners, but low access to commercial demand and monetization opportunities.
+    description: "Website-based marketplace connecting Sundanese artists with commercial demand using data-driven targeting and digital marketing.",
+    businessDescription: `Built a marketplace to solve a clear market gap: high supply of Sundanese artists but low access to commercial demand and monetization opportunities.
 
-The project focuses on market gap exploitation, digital channel optimization, and building a scalable business ecosystem for culture-based creative industries.
+Key Business Contributions:
 
-Business and data approach:
-- Market segmentation and targeting
-- Keyword-based demand analysis using SEO thinking
-- Competitor gap analysis in a low-competition niche
-- Digital funnel strategy across website, ads, and social media
+• Market Sizing: Conducted TAM, SAM, SOM market sizing analysis to validate the business opportunity in the cultural creative industry.
 
-Key market insight:
-- Keywords such as "jasa tari sunda bandung" still have low website-based competition, creating strong SEO opportunity
+• Competitor Gap Analysis: Identified that keywords like "jasa tari sunda bandung" have low website-based competition, creating strong SEO opportunity in a low-competition niche.
 
-Key impact and findings:
-- Clear market gap with low direct competition
-- Monetization model through 15–25% commission per transaction
-- Scalable marketplace model without needing to own the supply side
-- Demand validation from behavior data and event-based opportunities
-- Cultural value creation through better access, monetization, and preservation
+• Business Model Design: Designed a scalable marketplace model with 15-25% commission per transaction without needing to own the supply side.
 
-From a Business Analyst perspective, the project demonstrates:
-- Market sizing using TAM, SAM, and SOM
-- Competitor gap analysis
-- Problem-solution fit validation
-- Translation of market needs into a concrete business model
+• Demand Validation: Validated demand from behavior data and event-based opportunities, confirming problem-solution fit.
 
-From an IT Governance / Digital Strategy perspective, the project highlights:
-- Platform as a core business enabler
-- Data-driven marketing strategy
-- Importance of digital presence as a strategic asset
-- Tracking user behavior, keyword signals, and traffic for continuous improvement
+• Digital Funnel Strategy: Designed cross-channel digital marketing funnel across website, ads, and social media for customer acquisition.`,
+    technicalDescription: `Built and deployed the marketplace website with SEO optimization, digital marketing integration, and user behavior analytics.
 
-Overall, Sundahub shows that the main issue in creative cultural industries is not lack of talent or demand, but lack of system, platform, and data-driven strategy.`,
-    techStack: ["Website Development (Frontend & Backend)", "SEO (Search Engine Optimization)", "Google Ads", "Social Media Marketing", "Market Analysis (TAM, SAM, SOM)", "User Behavior Analysis", "Digital Funnel Strategy"],
+Technical Implementation:
+
+• Website Development: Built the marketplace frontend and backend from design to deployment, implementing responsive layouts and content management.
+
+• SEO Strategy: Implemented keyword-optimized pages targeting low-competition cultural service keywords, achieving organic visibility.
+
+• Google Ads Integration: Set up and managed Google Ads campaigns for targeted customer acquisition and lead generation.
+
+• Analytics Setup: Implemented user behavior tracking, keyword signal monitoring, and traffic analysis for continuous improvement.
+
+Tech Stack: Web Development, SEO, Google Ads, Social Media Marketing, Analytics`,
+    techStack: ["Web Development", "SEO", "Google Ads", "Social Media Marketing", "User Behavior Analysis"],
     image: tarisundaImage,
     year: "2024"
   },
-
   {
-    id: 3,
+    id: 1,
     featured: false,
-    title: "Instagram Public Sentiment Intelligence for Customs Governance using K-Means Clustering",
+    title: "Instagram Public Sentiment Intelligence for Customs Governance",
     category: "Public Sector Analytics",
-    description: "Analyzes 15,000+ Instagram comments about customs issues to identify sentiment patterns and public opinion dynamics using K-Means clustering.",
-    longDescription: `This project was developed to understand how the public responds to viral issues related to customs services. Using public discourse on Instagram as a case study, the system was designed to detect, analyze, and uncover hidden opinion patterns in a computational way.
+    description: "Analyzes 15,000+ Instagram comments about customs issues using K-Means clustering to identify sentiment patterns and public opinion dynamics.",
+    businessDescription: `Analyzed public discourse on Instagram to understand how citizens respond to viral customs service issues — providing institutional intelligence for reputation management and service improvement.
 
-From an impact perspective, this project contributes directly to:
-- Digital reputation monitoring for public institutions
-- Early warning detection for public service issues
-- Data-driven evaluation for operational and communication improvement
-- Evidence-based public insight for institutional review
+Key Business Contributions:
 
-The dataset was collected through web scraping of Instagram comments from several high-traffic media accounts, covering two nationally discussed issues. In total, around 15,000 public comments were gathered from six different posts. The data then went through a text preprocessing pipeline including case folding, tokenizing, filtering, and stemming, followed by TF-IDF feature extraction and K-Means clustering to uncover hidden discussion patterns.
+• Digital Reputation Monitoring: Built a system for monitoring institutional digital reputation based on public social media discourse rather than internal surveys.
 
-In terms of performance, the model produced solid and actionable results:
-- SLB-A Pembina Nasional topic: average Silhouette Score of 0.5518
-- Medy Renaldy package unloading topic: average Silhouette Score of 0.5613
+• Issue Escalation Pattern Analysis: Identified that public narratives suggest issues only receive institutional attention after going viral, highlighting gaps in proactive issue management.
 
-These values fall into a reasonable clustering range, meaning the model can separate public opinion groups with sufficient quality for policy analysis and institutional evaluation.
+• Reputational Risk Assessment: Mapped clusters discussing operational negligence, accountability, and institutional reputation — providing specific areas for governance intervention.
 
-The most valuable output of the project is not just clustering, but the business and governance insight derived from the data. Key patterns identified include:
-- Public narratives suggesting issues only receive attention after going viral
-- Many comments highlighting trust in the institution
-- Clusters explicitly discussing operational negligence, accountability, and institutional reputation
-- Consistent opinion patterns across different posts, showing that public perception is structured rather than random
+• Structured Public Perception: Demonstrated that public perception is structured rather than random — consistent opinion patterns across different posts indicate underlying systematic concerns.`,
+    technicalDescription: `Built a text mining pipeline processing 15,000+ Instagram comments through NLP preprocessing and unsupervised clustering for opinion pattern discovery.
 
-From a Business Analyst perspective, this project helps answer questions such as:
-- What are the main public pain points regarding a public service?
-- How do issue escalation patterns form on social media?
-- Which areas pose the highest reputational risk for an organization?
+Technical Implementation:
 
-From an IT Governance perspective, the results can be used for:
-- Institutional digital reputation monitoring
-- Early warning systems for public service issues
-- Data-driven evaluation for operational and communication improvement
+• Web Scraping: Collected ~15,000 public comments from Instagram media accounts using Selenium, covering nationally discussed customs issues across 6 posts.
 
-Overall, this project shows how unstructured social media data can be transformed into strategic governance insight for decision-making.`,
-    techStack: ["Python", "Selenium (web scraping Instagram comments)", "Pandas", "Scikit-learn", "TF-IDF Vectorization", "K-Means Clustering", "Elbow Method", "Silhouette Score", "Matplotlib", "WordCloud", "CSV-based data pipeline"],
+• NLP Preprocessing: Implemented text preprocessing pipeline — case folding, tokenizing, filtering, and stemming for Indonesian language text.
+
+• TF-IDF + K-Means Clustering: Applied TF-IDF feature extraction and K-Means clustering to discover hidden discussion patterns, achieving Silhouette Scores of 0.5518 and 0.5613.
+
+• Cluster Analysis: Interpreted cluster compositions to extract meaningful public opinion groups with sufficient quality for policy analysis.
+
+Tech Stack: Python, Selenium, Scikit-learn, TF-IDF, K-Means, Matplotlib, WordCloud`,
+    techStack: ["Python", "Selenium", "Scikit-learn", "TF-IDF", "K-Means", "Matplotlib", "WordCloud"],
     image: beacukaiImage,
     year: "2024"
   },
   {
     id: 4,
     featured: false,
-    title: "Smart Mobility: Contactless Wheelchair Navigation via Head Pose Estimation & Microcontroller Integration",
+    title: "Smart Mobility: Contactless Wheelchair Navigation via Head Pose Estimation",
     category: "Smart Mobility",
-    description: "Hands-free wheelchair navigation using head-pose estimation and Arduino integration.",
-    longDescription: `Dependence on physical joysticks creates an accessibility barrier for users with severe motor disabilities (e.g., quadriplegia). This project presents a low-cost, hands-free navigation system that uses only a standard webcam and AI processing to translate 3D head pose and facial cues into mechanical motion commands.
+    description: "Hands-free wheelchair navigation using head-pose estimation and Arduino microcontroller integration.",
+    businessDescription: `Addressed an accessibility barrier for users with severe motor disabilities — replacing physical joystick dependence with a low-cost, hands-free navigation system.
 
-As a Business Analyst / Systems Architect I defined IT governance and operational controls to ensure reliability and user safety:
-- Precision Calibration (Dynamic Calibration): A quick 'C' calibration allows users to set a personal neutral point, compensating for seating differences or minor disturbances and preventing small involuntary movements from triggering commands (20° threshold).
-- Latency Governance (Multithreading): Vision processing and serial communication are isolated into separate threads—Thread A handles camera and CV pipeline, Thread B secures the Serial channel to the Arduino—ensuring deterministic response times (baudrate 9600) between user input and motor actuation.
-- Safety Protocol (Smooth Braking): The Arduino implements a Smooth Braking algorithm that gradually reduces PWM signals when the user's face returns to neutral, preventing abrupt stops that could endanger the user.
-- Intuitive Command Mapping: PnP and Euler-angle transforms map head movements to navigation: pitch down/up (Pitch < -15°) = forward, yaw left/right (Yaw > 20° / < -20°) = turn/pivot, and mouth-open ratio used as a discrete command for reverse.
+Key Business Contributions:
 
-The project demonstrates how ML and CV algorithms can be translated into a robust IoT hardware solution—secure, safe, and impactful for enhancing mobility independence.`,
-    techStack: ["Python", "MediaPipe (Face Mesh, 468 landmarks)", "OpenCV", "NumPy", "PnP Solver / Euler Angles", "C++ (Arduino)", "Arduino Uno", "L298N Motor Driver", "DC Motors", "Multithreading", "Serial Communication (USB)"],
+• Accessibility Impact: Solved a real accessibility problem for quadriplegia patients by eliminating the physical joystick requirement, expanding wheelchair access to users who cannot operate conventional controls.
+
+• Cost Efficiency: Achieved the solution using only a standard webcam and open-source AI processing — significantly lower cost than specialized commercial assistive technology solutions.
+
+• Safety Governance: Defined operational controls for reliability and user safety — dynamic calibration (20° threshold), latency governance through multithreading, and smooth braking protocols to prevent sudden stops.
+
+• Intuitive Command Mapping: Designed the user interaction model — head pitch for forward/backward, yaw for turning, and mouth-open ratio for reverse — ensuring zero learning curve for end users.`,
+    technicalDescription: `Built a real-time computer vision system translating 3D head pose and facial cues into mechanical wheelchair motion commands via Arduino integration.
+
+Technical Implementation:
+
+• Head Pose Estimation: Implemented MediaPipe Face Mesh (468 landmarks) with PnP Solver and Euler angle transforms for real-time 3D head pose detection — pitch for forward/backward, yaw for turning.
+
+• Dynamic Calibration: Built 'C'-key calibration system allowing users to set personal neutral points, compensating for seating differences with 20° movement thresholds.
+
+• Multithreaded Architecture: Isolated vision processing (Thread A: camera + CV pipeline) and serial communication (Thread B: Arduino) into separate threads for deterministic response times.
+
+• Arduino Motor Control: Built C++ Arduino controller with L298N motor driver integration, implementing smooth braking algorithm that gradually reduces PWM signals to prevent abrupt stops.
+
+• Reverse Command: Implemented mouth-open ratio detection as a discrete reverse command — a creative solution for hands-free backward navigation.
+
+Tech Stack: Python, MediaPipe, OpenCV, NumPy, Arduino (C++), L298N Motor Driver, Serial Communication`,
+    techStack: ["Python", "MediaPipe", "OpenCV", "NumPy", "Arduino (C++)", "L298N Motor Driver", "Serial Communication"],
     image: robotImage,
     year: "2025"
   },
-]; 
+];

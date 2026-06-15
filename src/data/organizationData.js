@@ -15,11 +15,10 @@ export const organizationData = [
     organization: "Character Building Season 2025",
     duration: "May 2025 - Oct 2025",
     image: cbsImage,
-    description: `Character Building Season (CBS) is an annual program organized by Himatif to shape the character of freshmen and help them adapt to college life. In this year edition, I had the opportunity to serve as the Project Officer, leading the entire committee. As the event’s main conceptualizer, I introduced the core values of SPIRIT (Solutive, Proactive, Reflective, Integrity) with Continous Growth.
-• Designed and implemented a character-building program for freshmen in collaboration with the Human Resource Management division.
-• Led a 80+ member committee, managing responsibilities across 3 directors and 9 managers.
-• Fostered a safe and supportive environment for both participants and committee members throughout the program.
-• Supervised character-building training for 90+ participants, ensuring strong engagement, integrity, and personal growth with 100% participant graduation.`
+    description: `Led full program lifecycle as main conceptualizer and chief coordinator for Character Building Season (CBS), an annual program organized by Himatif to shape the character of freshmen.
+• Designed the program framework (SPIRIT values: Solutive, Proactive, Reflective, Integrity, with Continuous Growth), aligned committee across workstreams, and maintained quality control from planning through execution.
+• Managed 80+ member committee across 3 directors and 9 managers, delivering a structured character-building program for 90+ freshmen with 100% participant graduation rate.
+• Fostered a safe and supportive environment for both participants and committee members throughout the program.`
   },
   {
     id: 2,
@@ -82,14 +81,12 @@ export const organizationData = [
     organization: "Himatif FMIPA Unpad 2024",
     duration: "Feb 2024 - Dec 2024",
     image: keprofImage,
-    description: `Led the Career Development Department to prepare Informatics Engineering students for professional success through programs on CV writing, interviews, portfolio building, and IT career opportunities.
-• Managed a team of 9 staff and delivered 4 flagship programs annually.
-• Collaborated with BCA, Traveloka, Dicoding, and Glinz to host site visits, webinars, and workshops.
-• Executed seminars for 400+ students and workshops for 35+ participants.
-• Awarded Best Department Head in HIMATIF FMIPA Unpad’s first term.`
+    description: `Managed a 9-person team, planned and delivered 4 annual programs in collaboration with BCA, Traveloka, Dicoding, and Gits.id; reached 400+ students via seminars and 35+ participants via workshops.
+• Led the Career Development Department to prepare Informatics Engineering students for professional success through programs on CV writing, interviews, portfolio building, and IT career opportunities.
+• Awarded Best Department Head in Himatif FMIPA Unpad's evaluation cycle.`
   },
   {
-    id: 8,
+    id: 9,
     position: "Project Officer",
     organization: "BERUBAH - Belajar Mengubah Sampah",
     duration: "Oct 2023 - Dec 2023",

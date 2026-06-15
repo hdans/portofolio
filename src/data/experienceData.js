@@ -6,46 +6,42 @@ import logoFIF from '../assets/img/FIF.png';
 export const experienceData = [
   {
     id: 1,
-    institution: "PT Federal International Finance (FIFGROUP - Astra Group), South Jakarta",
-    role: "IT Planning and Governance Data Analyst Intern",
-    duration: "Aug 2023 - Present",
+    institution: "PT Federal International Finance (FIFGROUP – Astra Group), South Jakarta",
+    role: "IT Planning & Governance Analyst Intern",
+    duration: "Feb 2026 – Present",
     logo: logoFIF,
-    description: `• Executed enterprise IT asset audits across 400+ branches using SQL-driven workflows, ensuring data integrity for 200+ IT users and governance stakeholders.
-• Identified and escalated high-value asset billing discrepancies worth hundreds of millions IDR, accelerating cross-functional resolution across 7+ IT departments.
-• Delivered monthly asset analytics and self-service reporting to support IT audit initiatives, compliance monitoring, and governance decision-making.
-`
+    description: `• Mapped and analyzed IT asset management processes across 400+ branches, identified 10+ unrecorded assets and material cost discrepancies (hundreds of millions IDR); produced structured findings reports and coordinated remediation actions with 7+ IT teams.
+• Designed Power BI governance dashboards integrating 1M+ service ticket records for real-time SLA/KPI monitoring, adopted by 200+ IT staff as the primary decision-support tool for IT leadership.
+• Delivered monthly asset analytics reports aligning IT operational findings with finance and governance requirements, enabling cost reconciliation and compliance monitoring across business units.`
   },
   {
     id: 2,
     institution: "Center for Innovation in Teaching and Learning, Padjadjaran University, Sumedang",
-    role: "AI Researcher",
-    duration: "Aug 2025 - Dec 2025",
+    role: "Software Engineer Intern",
+    duration: "Aug 2025 – Dec 2025",
     logo: logoUnpad,
-    description: `• Conducted EEG-based emotion recognition research using Muse S Band to classify student emotions during educational video sessions.
-• Collected and processed EEG data from 8 subjects and built machine/deep learning models, achieving ~70% classification accuracy.
-• Supported Universitas Padjadjaran’s initiative to apply EEG-based emotion detection in learning analytics.
-`
+    description: `• Built a full-stack multimodal engagement analytics system (Next.js frontend + Flask backend) integrating three real-time data streams — EEG, eye tracking, and face recognition — running simultaneously on a single consumer laptop.
+• Designed the end-to-end EEG pipeline from raw signal acquisition (Muse Headband via LSL) through preprocessing (Notch/Bandpass filter, ICA artifact removal) to ML classification across 7 models, achieving the strongest result in the study.
+• Replaced $3,000–5,000 lab-grade hardware with a consumer webcam + $250–400 headband without sacrificing real-time processing capability — validated on 8 subjects in-lab.`
   },
   {
     id: 3,
     institution: "Informatics Engineering, Padjadjaran University, Sumedang",
     role: "Teaching Assistant",
-    duration: "Jan 2025 - Dec 2025",
+    duration: "Jan 2025 – Dec 2025",
     logo: logoTI,
-    description: `• Mentored 90+ students per semester in Database Systems (SQL, MySQL, Oracle) and Data Structures, emphasizing relational architecture and query optimization.
+    description: `• Coordinated structured learning delivery for 90+ students per semester across Database Systems and Data Structures; assessed outputs against defined quality and correctness standards.
 • Evaluated database designs and enforced strict data integrity standards and best practices in relational database systems.
-• Guided hands-on implementation sessions to strengthen students' problem-solving, coding discipline, and system-thinking capability.
-    `
+• Guided hands-on implementation sessions to strengthen students' problem-solving, coding discipline, and system-thinking capability.`
   },
   {
     id: 4,
     institution: "Sundahub, Sumedang, West Java",
-    role: "Product and Technology Lead",
-    duration: "Feb 2024 - Dec 2024",
+    role: "Product & Technology Lead",
+    duration: "Feb 2024 – Dec 2024",
     logo: logoSundahub,
-    description: `• Defined and executed product strategy, aligning technical implementation with business goals and operational requirements.
-• Led requirement gathering and translated stakeholder needs into scalable web architecture and functional specifications.
-• Delivered and managed the company website, generating consistent inbound interest of 2-5 potential customers per month.
-`
+    description: `• Owned end-to-end product delivery for a government-backed startup (Unpadpreneur & P2MW 2024): led requirement gathering, defined technical scope, and managed a 5-person cross-functional team from concept to launch.
+• Translated stakeholder business goals into a scalable web architecture and a prioritized delivery roadmap with clear scope boundaries and risk controls.
+• Built and shipped the main web product using Tailwind CSS, from initial layout to live deployment. Shipped product on schedule; generated 2–5 qualified inbound leads per month with structured performance monitoring in place post-launch.`
   },
 ];
