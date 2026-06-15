@@ -124,19 +124,9 @@ const ProfileSection = () => {
             <h3 className="subsection-title">Technical Expertise</h3>
             <div className="skills-grid">
               <div className="skills-category">
-                <h4 className="category-name">Languages</h4>
+                <h4 className="category-name">Project Management & Business Analysis</h4>
                 <div className="skills-tags">
-                  {skillsData.languages.map((skill, index) => (
-                    <span key={index} className="skill-tag" data-cursor-hover>
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <div className="skills-category">
-                <h4 className="category-name">Data Tools</h4>
-                <div className="skills-tags">
-                  {skillsData.tools.map((skill, index) => (
+                  {skillsData.pmBa.map((skill, index) => (
                     <span key={index} className="skill-tag" data-cursor-hover>
                       {skill}
                     </span>
@@ -145,7 +135,29 @@ const ProfileSection = () => {
               </div>
 
               <div className="skills-category">
-                <h4 className="category-name">ML & AI</h4>
+                <h4 className="category-name">Frontend</h4>
+                <div className="skills-tags">
+                  {skillsData.frontend.map((skill, index) => (
+                    <span key={index} className="skill-tag" data-cursor-hover>
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="skills-category">
+                <h4 className="category-name">Backend & Infrastructure</h4>
+                <div className="skills-tags">
+                  {skillsData.backend.map((skill, index) => (
+                    <span key={index} className="skill-tag" data-cursor-hover>
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="skills-category">
+                <h4 className="category-name">AI / ML</h4>
                 <div className="skills-tags">
                   {skillsData.mlAi.map((skill, index) => (
                     <span key={index} className="skill-tag" data-cursor-hover>
@@ -156,17 +168,26 @@ const ProfileSection = () => {
               </div>
 
               <div className="skills-category">
-                <h4 className="category-name">Frameworks</h4>
+                <h4 className="category-name">Languages</h4>
                 <div className="skills-tags">
-                  {skillsData.frameworks.map((skill, index) => (
+                  {skillsData.languages.map((skill, index) => (
                     <span key={index} className="skill-tag" data-cursor-hover>
                       {skill}
                     </span>
                   ))}
                 </div>
               </div>
-              
 
+              <div className="skills-category">
+                <h4 className="category-name">Tools</h4>
+                <div className="skills-tags">
+                  {skillsData.tools.map((skill, index) => (
+                    <span key={index} className="skill-tag" data-cursor-hover>
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </ScrollReveal>

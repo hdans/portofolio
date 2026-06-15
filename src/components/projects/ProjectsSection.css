@@ -364,6 +364,96 @@
   font-weight: 500;
 }
 
+/* Perspective Toggle */
+.perspective-toggle-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.perspective-toggle {
+  display: flex;
+  position: relative;
+  background-color: rgba(201, 169, 98, 0.08);
+  border: 1px solid rgba(201, 169, 98, 0.2);
+  border-radius: 50px;
+  padding: 4px;
+  width: 100%;
+  max-width: 420px;
+}
+
+.toggle-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1rem;
+  border: none;
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-gray, #6b6b6b);
+  cursor: pointer;
+  transition: color 0.3s ease;
+  position: relative;
+  z-index: 2;
+  border-radius: 50px;
+  white-space: nowrap;
+}
+
+.toggle-btn.active {
+  color: var(--color-black, #1a1a1a);
+}
+
+.toggle-btn:hover:not(.active) {
+  color: var(--color-dark, #2d2d2d);
+}
+
+.toggle-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.toggle-label {
+  font-size: 0.85rem;
+  letter-spacing: -0.01em;
+}
+
+.toggle-slider {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: calc(50% - 4px);
+  height: calc(100% - 8px);
+  background: var(--color-white, #ffffff);
+  border-radius: 50px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(201, 169, 98, 0.15);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 1;
+}
+
+.toggle-slider.slide-right {
+  transform: translateX(100%);
+}
+
+.toggle-hint {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  color: var(--color-accent, #c9a962);
+  letter-spacing: 0.02em;
+  font-weight: 500;
+  text-align: center;
+  opacity: 0.8;
+}
+
+/* Modal Description with Animation */
+.modal-description-container {
+  min-height: 120px;
+}
+
 .modal-description {
   font-family: var(--font-body);
   font-size: 1rem;
@@ -371,6 +461,21 @@
   color: var(--color-dark, #2d2d2d);
   white-space: pre-wrap;
   word-wrap: break-word;
+}
+
+.modal-description.fade-in {
+  animation: fadeInContent 0.35s ease-out;
+}
+
+@keyframes fadeInContent {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .modal-tech-stack {
@@ -508,6 +613,23 @@
   .section-line {
     display: none;
   }
+
+  .perspective-toggle {
+    max-width: 100%;
+  }
+
+  .toggle-btn {
+    padding: 0.55rem 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .toggle-icon {
+    font-size: 0.9rem;
+  }
+
+  .toggle-label {
+    font-size: 0.8rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -521,5 +643,18 @@
 
   .modal-title {
     font-size: 1.5rem;
+  }
+
+  .toggle-btn {
+    padding: 0.5rem 0.5rem;
+    gap: 0.3rem;
+  }
+
+  .toggle-label {
+    font-size: 0.75rem;
+  }
+
+  .toggle-hint {
+    font-size: 0.65rem;
   }
 }

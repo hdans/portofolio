@@ -10,9 +10,10 @@ const HeroSection = () => {
   const [isCvModalOpen, setIsCvModalOpen] = useState(false);
   
   const roles = [
-    'IT Governance / Audit / Consulting',
-    'Data & Business Analyst',
+    'Project Manager',
+    'IT Business/System Analyst',
     'Full Stack Developer',
+    'AI Engineer',
   ];
 
   const containerVariants = {
@@ -66,7 +67,7 @@ const HeroSection = () => {
         </motion.h1>
         
         <motion.p className="hero-subtitle" variants={itemVariants}>
-          Focused on IT Governance, IT Audit, and IT Consulting, with supporting strengths in Data and Business Analysis as well as Full Stack Development.
+          Leading cross-functional teams, translating business requirements into delivery roadmaps, and shipping full-stack applications with AI-integrated features.
         </motion.p>
 
         <motion.div className="hero-cta-group" variants={itemVariants}>

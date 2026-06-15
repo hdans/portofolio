@@ -19,7 +19,7 @@
   pointer-events: none;
 }
 
-/* Decorative gradient orbs */
+/* Decorative gradient orb */
 .organization-section::after {
   content: '';
   position: absolute;
@@ -39,27 +39,21 @@
   z-index: 1;
 }
 
-/* Decorative orb left side */
-.organization-container::before {
-  content: '';
-  position: absolute;
-  bottom: 10%;
-  left: -15%;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(201, 169, 98, 0.06) 0%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: -1;
+.section-header-wrapper {
+  margin-bottom: 3rem;
 }
 
-.section-header {
+.section-header-wrapper .section-header {
+  margin-bottom: 0;
+}
+
+.organization-section .section-header {
   display: flex;
   align-items: center;
   gap: 1.5rem;
 }
 
-.section-number {
+.organization-section .section-number {
   font-family: var(--font-heading);
   font-size: 0.875rem;
   font-weight: 500;
@@ -75,252 +69,59 @@
   letter-spacing: -0.02em;
 }
 
-.section-line {
+.organization-section .section-line {
   flex: 1;
   height: 1px;
   background-color: var(--color-charcoal, #3d3d3d);
   max-width: 200px;
 }
 
-.section-header-wrapper {
-  margin-bottom: 4rem;
-}
+/* ========== HIGHLIGHTED GRID ========== */
 
-.section-header-wrapper .section-header {
-  margin-bottom: 0.75rem;
-}
-
-.section-hint {
-  font-size: 0.8rem;
-  color: var(--color-accent, #c9a962);
-  opacity: 0.7;
-  letter-spacing: 0.05em;
-}
-
-.organization-grid {
+.org-highlighted-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 3rem 5rem;
-  padding: 2rem 0;
-  max-width: 1100px;
-  margin: 0 auto;
-  align-items: center;
-  position: relative;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
 }
 
-/* Hide the old pseudo-element connectors */
-.organization-grid::before {
-  display: none;
-}
-
-/* Container for card + connectors */
-.org-card-container {
-  position: relative;
-  display: flex;
-}
-
-/* Left cards align right, right cards align left */
-.org-card-container:nth-child(odd) {
-  justify-content: flex-end;
-}
-
-.org-card-container:nth-child(even) {
-  justify-content: flex-start;
-}
-
-/* Connector base styles */
-.connector {
-  position: absolute;
-  pointer-events: none;
-  z-index: -1;
-  opacity: 0.6;
-}
-
-/* Dotted line pattern */
-.connector::before {
-  content: '';
-  position: absolute;
-  background-color: var(--color-accent, #c9a962);
-  border-radius: 50%;
-  opacity: 0.8;
-}
-
-/* ========== HORIZONTAL CONNECTORS ========== */
-
-/* Horizontal connector to the RIGHT (from left card) */
-.connector-horizontal-right {
-  top: 50%;
-  left: 100%;
-  width: calc(5rem + 100px);
-  height: 4px;
-  transform: translateY(-50%);  
-  background-image: repeating-linear-gradient(
-    to right,
-    var(--color-accent, #c9a962) 0px,
-    var(--color-accent, #c9a962) 8px,
-    transparent 8px,
-    transparent 16px
-  );
-}
-
-.connector-horizontal-right::before {
-  display: none;
-}
-
-/* Horizontal connector to the LEFT (from right card) */
-.connector-horizontal-left {
-  top: 50%;
-  right: 100%;
-  width: calc(5rem + 100px);
-  height: 4px;
-  transform: translateY(-50%);
-  background-image: repeating-linear-gradient(
-    to left,
-    var(--color-accent, #c9a962) 0px,
-    var(--color-accent, #c9a962) 8px,
-    transparent 8px,
-    transparent 16px
-  );
-}
-
-.connector-horizontal-left::before {
-  display: none;
-  width: 14px;
-  height: 14px;
-}
-
-/* ========== VERTICAL CONNECTORS ========== */
-
-/* Vertical connector from RIGHT side (even rows) - centered on photo */
-.connector-vertical-right {
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 4px;
-  height: 3rem;
-  background-image: repeating-linear-gradient(
-    to bottom,
-    var(--color-accent, #c9a962) 0px,
-    var(--color-accent, #c9a962) 8px,
-    transparent 8px,
-    transparent 16px
-  );
-}
-
-.connector-vertical-right::before {
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 14px;
-  height: 14px;
-}
-
-/* Vertical connector from LEFT side (odd rows) - centered on photo */
-.connector-vertical-left {
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 4px;
-  height: 3rem;
-  background-image: repeating-linear-gradient(
-    to bottom,
-    var(--color-accent, #c9a962) 0px,
-    var(--color-accent, #c9a962) 8px,
-    transparent 8px,
-    transparent 16px
-  );
-}
-
-/* Mobile vertical connector - hidden on desktop, shown on mobile */
-.connector-mobile-vertical {
-  display: none;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 4px;
-  height: 4rem;
-  background-image: repeating-linear-gradient(
-    to bottom,
-    var(--color-accent, #c9a962) 0px,
-    var(--color-accent, #c9a962) 8px,
-    transparent 8px,
-    transparent 16px
-  );
-}
-
-.connector-vertical-left::before {
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 14px;
-  height: 14px;
-}
-
-.organization-card-wrapper {
-  cursor: none !important;
-  perspective: 1000px;
-  display: flex;
-  transition: transform 0.3s ease;
-  position: relative;
-}
-
-/* Remove old pseudo-element connectors */
-.organization-card-wrapper:nth-child(odd)::after,
-.organization-card-wrapper:nth-child(even)::before,
-.organization-card-wrapper:nth-child(odd)::before {
-  display: none;
-}
-
-/* Left cards (odd) align to right, right cards (even) align to left */
-.organization-card-wrapper:nth-child(odd) {
-  justify-content: flex-end;
-}
-
-.organization-card-wrapper:nth-child(even) {
-  justify-content: flex-start;
-}
-
-/* Size variations: big and small - both bigger now */
-.organization-card-wrapper.card-big .organization-card {
-  max-width: 480px;
-}
-
-.organization-card-wrapper.card-small .organization-card {
-  max-width: 400px;
-}
-
-.organization-card {
-  position: relative;
-  display: inline-block;
+.org-highlight-card {
+  background: rgba(61, 61, 61, 0.5);
+  border: 1px solid rgba(201, 169, 98, 0.15);
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 2px solid var(--color-charcoal, #3d3d3d);
-  background: var(--color-charcoal, #3d3d3d);
-  z-index: 10;
+  cursor: none !important;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
-.organization-card:hover {
-  transform: rotate(0deg) scale(1.05) translateY(-8px) !important;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+.org-highlight-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
   border-color: var(--color-accent, #c9a962);
-  z-index: 10;
 }
 
-.org-image {
-  display: block;
-  line-height: 0;
+.org-highlight-image {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
 }
 
-.org-image-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  border-radius: 16px;
+.org-highlight-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
 }
 
-.org-image-placeholder {
+.org-highlight-card:hover .org-highlight-img {
+  transform: scale(1.05);
+}
+
+.org-highlight-placeholder {
   width: 100%;
   height: 100%;
   display: flex;
@@ -331,47 +132,176 @@
   font-family: var(--font-heading);
   font-size: 2rem;
   font-weight: 600;
-  letter-spacing: 0.05em;
 }
 
-.org-overlay {
+.org-highlight-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(26, 26, 26, 0.95);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2));
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem;
-  text-align: center;
-  animation: fadeIn 0.3s ease;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.org-highlight-card:hover .org-highlight-overlay {
+  opacity: 1;
 }
 
-.org-position {
-  font-family: var(--font-heading);
-  font-size: 1rem;
-  font-weight: 500;
-  color: var(--color-accent, #c9a962);
-  margin-bottom: 0.5rem;
-}
-
-.org-name {
+.org-view-label {
+  color: var(--color-white, #ffffff);
   font-family: var(--font-body);
-  font-size: 0.875rem;
-  color: var(--color-light-gray, #a0a0a0);
-  line-height: 1.4;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
 }
 
-/* Modal Content */
+.org-view-label::after {
+  content: ' →';
+}
+
+.org-highlight-info {
+  padding: 1.25rem;
+}
+
+.org-highlight-badge {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-accent, #c9a962);
+  background: rgba(201, 169, 98, 0.12);
+  border: 1px solid rgba(201, 169, 98, 0.25);
+  padding: 0.3rem 0.7rem;
+  border-radius: 50px;
+  margin-bottom: 0.65rem;
+}
+
+.org-highlight-name {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--color-white, #ffffff);
+  line-height: 1.35;
+  margin-bottom: 0.4rem;
+}
+
+.org-highlight-duration {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 0.02em;
+}
+
+/* ========== OTHER ORGANIZATIONS — COMPACT GRID ========== */
+
+.org-other-wrapper {
+  padding-top: 2rem;
+  border-top: 1px solid rgba(201, 169, 98, 0.1);
+}
+
+.org-other-title {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 1.5rem;
+}
+
+.org-other-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.org-compact-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(61, 61, 61, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  cursor: none !important;
+  transition: all 0.3s ease;
+}
+
+.org-compact-card:hover {
+  background: rgba(61, 61, 61, 0.5);
+  border-color: rgba(201, 169, 98, 0.25);
+  transform: translateY(-2px);
+}
+
+.org-compact-image {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.org-compact-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.org-compact-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(201, 169, 98, 0.1);
+  color: var(--color-accent, #c9a962);
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.org-compact-info {
+  min-width: 0;
+}
+
+.org-compact-position {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-accent, #c9a962);
+  margin-bottom: 0.15rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.org-compact-name {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-white, #ffffff);
+  line-height: 1.3;
+  margin-bottom: 0.15rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.org-compact-duration {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+/* ========== MODAL ========== */
+
 .org-modal-content {
   display: flex;
   flex-direction: column;
@@ -395,7 +325,7 @@
 
 .modal-org-placeholder {
   width: 100%;
-  height: 100%;
+  height: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -439,46 +369,22 @@
   background-color: var(--color-accent, #c9a962);
 }
 
-.modal-description {
+.organization-section .modal-description {
   font-family: var(--font-body);
   font-size: 1rem;
   line-height: 1.8;
   color: var(--color-dark, #2d2d2d);
 }
 
-/* Responsive */
+/* ========== RESPONSIVE ========== */
+
 @media (max-width: 1024px) {
-  .organization-grid {
+  .org-highlighted-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 2.5rem 3rem;
-    max-width: 800px;
   }
 
-  .organization-card-wrapper.card-big .organization-card {
-    max-width: 380px;
-  }
-
-  .organization-card-wrapper.card-small .organization-card {
-    max-width: 320px;
-  }
-
-  .connector-horizontal-right,
-  .connector-horizontal-left {
-    width: 3rem;
-  }
-  
-  .connector-horizontal-right {
-    right: -3rem;
-  }
-  
-  .connector-horizontal-left {
-    left: -3rem;
-  }
-
-  .connector-vertical-right,
-  .connector-vertical-left {
-    bottom: -2.5rem;
-    height: 2.5rem;
+  .org-other-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -491,53 +397,25 @@
     display: none;
   }
 
-  .organization-container::before {
-    display: none;
-  }
-
-  .organization-grid {
+  .org-highlighted-grid {
     grid-template-columns: 1fr;
-    gap: 4rem;
-    max-width: 400px;
+    gap: 1.25rem;
   }
 
-  /* Hide desktop connectors on tablet/mobile */
-  .connector-horizontal-right,
-  .connector-horizontal-left,
-  .connector-vertical-right,
-  .connector-vertical-left {
-    display: none;
+  .org-highlight-image {
+    height: 180px;
   }
 
-  /* Show mobile vertical connector */
-  .connector-mobile-vertical {
-    display: block;
+  .org-other-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
   }
 
-  .org-card-container:nth-child(odd),
-  .org-card-container:nth-child(even) {
-    justify-content: center;
-  }
-
-  .organization-card-wrapper:nth-child(odd),
-  .organization-card-wrapper:nth-child(even) {
-    justify-content: center;
-  }
-
-  .organization-card-wrapper.card-big .organization-card,
-  .organization-card-wrapper.card-small .organization-card {
-    max-width: 380px;
-  }
-
-  .org-image-placeholder {
-    font-size: 1.5rem;
-  }
-
-  .section-header {
+  .organization-section .section-header {
     flex-wrap: wrap;
   }
 
-  .section-line {
+  .organization-section .section-line {
     display: none;
   }
 }
@@ -547,28 +425,12 @@
     padding: 5rem 1rem;
   }
 
-  .organization-grid {
-    grid-template-columns: 1fr;
-    gap: 4rem;
-    max-width: 340px;
+  .org-highlight-image {
+    height: 160px;
   }
 
-  .connector-vertical-right,
-  .connector-vertical-left {
-    height: 4rem;
-  }
-
-  .organization-card-wrapper.card-big .organization-card,
-  .organization-card-wrapper.card-small .organization-card {
-    max-width: 320px;
-  }
-
-  .org-position {
-    font-size: 0.875rem;
-  }
-
-  .org-name {
-    font-size: 0.75rem;
+  .org-highlight-name {
+    font-size: 0.95rem;
   }
 
   .modal-position {
