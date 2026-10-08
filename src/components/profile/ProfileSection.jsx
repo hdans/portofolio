@@ -110,7 +110,7 @@ const ProfileSection = () => {
                 <div className="education-content">
                   <h4 className="university-name">{profileData.education.university}</h4>
                   <div className="education-meta">
-                    <span className="meta-item">Semester {profileData.education.semester}</span>
+                    <span className="meta-item">{profileData.education.year}</span>
                     <span className="gpa-badge">
                       GPA {profileData.education.gpa}
                     </span>

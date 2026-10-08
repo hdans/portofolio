@@ -33,33 +33,50 @@ import {
 export const skillsCategories = [
   {
     id: 'pm',
-    label: 'PM & Audit',
+    label: 'Product & Project',
     icon: <Briefcase size={18} />,
     skills: [
-      { name: "End-to-End Project Delivery", icon: <Target size={16} /> },
+      { name: "End-to-End Product Delivery", icon: <Target size={16} /> },
+      { name: "Requirement Discovery", icon: <Search size={16} /> },
+      { name: "PRD & BRD Writing", icon: <FileText size={16} /> },
+      { name: "User Stories & Acceptance Criteria", icon: <CheckCircle size={16} /> },
+      { name: "Backlog & Sprint Planning (Jira)", icon: <Layers size={16} /> },
+      { name: "Feature Prioritization", icon: <TrendingUp size={16} /> },
       { name: "Scope & Risk Management", icon: <ShieldCheck size={16} /> },
-      { name: "Roadmap Planning", icon: <TrendingUp size={16} /> },
-      { name: "Program Lifecycle Management", icon: <Activity size={16} /> },
-      { name: "Cross-functional Team Coordination", icon: <Users size={16} /> },
-      { name: "IT Asset Management & Auditing", icon: <Box size={16} /> },
-      { name: "Compliance Monitoring", icon: <Search size={16} /> },
-      { name: "Audit Trail Design", icon: <FileText size={16} /> },
-      { name: "IT Control Framework (COBIT, ISO)", icon: <ShieldCheck size={16} /> },
-      { name: "Data Integrity Assurance", icon: <ShieldCheck size={16} /> }
+      { name: "UAT & Production Launch", icon: <Activity size={16} /> },
+      { name: "Client & Stakeholder Management", icon: <Users size={16} /> },
+      { name: "Cross-functional Team Coordination", icon: <Users size={16} /> }
     ]
   },
   {
     id: 'ba',
-    label: 'Business Analysis',
+    label: 'Consulting & Analysis',
     icon: <PieChart size={18} />,
     skills: [
-      { name: "Requirements Elicitation", icon: <Search size={16} /> },
-      { name: "Business Process Mapping", icon: <Layers size={16} /> },
+      { name: "Business Process Analysis", icon: <Layers size={16} /> },
+      { name: "Process Improvement & Automation", icon: <Zap size={16} /> },
+      { name: "Solution Design", icon: <Target size={16} /> },
       { name: "Gap Analysis", icon: <Activity size={16} /> },
       { name: "Functional Specification Writing", icon: <FileText size={16} /> },
+      { name: "Technical Feasibility & Trade-offs", icon: <Settings size={16} /> },
       { name: "KPI/SLA Framework Design", icon: <BarChart size={16} /> },
-      { name: "Decision Support Design", icon: <PieChart size={16} /> },
-      { name: "Stakeholder Management", icon: <Users size={16} /> }
+      { name: "Decision Support Design", icon: <PieChart size={16} /> }
+    ]
+  },
+  {
+    id: 'grc',
+    label: 'IT GRC',
+    icon: <ShieldCheck size={18} />,
+    skills: [
+      { name: "Regulatory Gap Analysis", icon: <Search size={16} /> },
+      { name: "IT Policy Lifecycle Management", icon: <FileText size={16} /> },
+      { name: "User Access Review", icon: <Fingerprint size={16} /> },
+      { name: "IT Audit Support & Evidence Management", icon: <CheckCircle size={16} /> },
+      { name: "IT Control Frameworks (COBIT, ISO)", icon: <ShieldCheck size={16} /> },
+      { name: "Governance Review of BRDs & PRDs", icon: <FileText size={16} /> },
+      { name: "IT Asset Management & Auditing", icon: <Box size={16} /> },
+      { name: "Compliance Monitoring", icon: <Activity size={16} /> },
+      { name: "Remediation Tracking", icon: <Target size={16} /> }
     ]
   },
   {
@@ -84,16 +101,18 @@ export const skillsCategories = [
     icon: <Server size={18} />,
     skills: [
       { name: "Node.js", icon: <TerminalSquare size={16} /> },
+      { name: "Express", icon: <Server size={16} /> },
       { name: "FastAPI", icon: <Zap size={16} /> },
       { name: "PostgreSQL", icon: <Database size={16} /> },
+      { name: "MongoDB", icon: <Database size={16} /> },
       { name: "Oracle DB", icon: <Database size={16} /> },
       { name: "Supabase", icon: <Cloud size={16} /> },
       { name: "RESTful API", icon: <Globe size={16} /> },
-      { name: "JWT Authentication", icon: <ShieldCheck size={16} /> },
+      { name: "JWT & Role-Based Access", icon: <ShieldCheck size={16} /> },
       { name: "Railway", icon: <Cloud size={16} /> },
       { name: "Vercel", icon: <Cloud size={16} /> },
       { name: "Zero Trust Architecture", icon: <ShieldCheck size={16} /> },
-      { name: "Payment Gateway", icon: <Globe size={16} /> }
+      { name: "Payment Gateway (Midtrans)", icon: <Globe size={16} /> }
     ]
   },
   {
@@ -101,7 +120,9 @@ export const skillsCategories = [
     label: 'AI & ML',
     icon: <BrainCircuit size={18} />,
     skills: [
-      { name: "LLM Integration (Gemini)", icon: <BrainCircuit size={16} /> },
+      { name: "LLM Integration (Gemini, OpenAI)", icon: <BrainCircuit size={16} /> },
+      { name: "AI Document Processing", icon: <FileText size={16} /> },
+      { name: "AI Image Editing", icon: <Monitor size={16} /> },
       { name: "RAG Architecture", icon: <Layers size={16} /> },
       { name: "LightGBM", icon: <Cpu size={16} /> },
       { name: "XGBoost", icon: <Cpu size={16} /> },
@@ -154,6 +175,7 @@ export const skillsCategories = [
     icon: <Wrench size={18} />,
     skills: [
       { name: "Git", icon: <TerminalSquare size={16} /> },
+      { name: "Jira", icon: <Layers size={16} /> },
       { name: "Jupyter Notebook", icon: <FileText size={16} /> },
       { name: "Postman", icon: <Globe size={16} /> },
       { name: "Excel", icon: <BarChart size={16} /> },

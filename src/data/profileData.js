@@ -1,19 +1,19 @@
 export const profileData = {
   name: "Danish Rahadian",
   title: "Portfolio Danish Rahadian",
-  summary: `Informatics Engineering student at Padjadjaran University with proven experience leading cross-functional teams, translating business requirements into delivery roadmaps, and managing end-to-end project lifecycles. Equally comfortable shipping full-stack web applications from scratch to production using Next.js, React, FastAPI, and Node.js. Demonstrated ability to align stakeholder needs with technical scope, identify operational risks early, and drive measurable outcomes, from a profit-generating nationwide program to an enterprise IT governance initiative covering 400+ branches, to platforms with complex auth and payment flows and AI-integrated features.`,
-  
+  summary: `Final-year Informatics Engineering student at Padjadjaran University (GPA 3.97/4.00) working where business problems meet technology. As a part-time Product Manager & Engineer at Uplift Studio, I have taken 4 client products from requirement discovery to production launch, including an AI solution that cut Bill of Quantity turnaround by 95%, from 5 days to 2 hours. Alongside that, I work in IT Governance, Risk & Compliance at SeaBank, coordinating policy, audit, and control work across multiple directorates. I turn messy business requirements into clear scope, delivery plans, and working software, and I can build the product myself with Next.js, React, Node.js, and FastAPI.`,
+
   roles: [
-    "Project Manager",
-    "IT Business/System Analyst",
-    "Full Stack Developer",
-    "AI/ML Engineer"
+    "Product & Project Manager",
+    "Technology Consulting & Business Analysis",
+    "IT Governance, Risk & Compliance",
+    "Full Stack & AI Engineer"
   ],
   
   education: {
     university: "Padjadjaran University",
-    semester: 7,
-    gpa: 3.96,
-    description: `Informatics Engineering student at Padjadjaran University (GPA 3.96/4.00) with a strong foundation in structured project delivery and business analysis, complemented by hands-on experience shipping full-stack applications and AI-integrated systems. Recipient of Karya Salemba Empat (KSE) Excellence Program Scholarship for academic excellence and leadership potential.`
+    year: "Final Year",
+    gpa: 3.97,
+    description: `Bachelor of Informatics Engineering, expected to graduate in February 2027 with a GPA of 3.97/4.00. Named Mahasiswa Berprestasi (Outstanding Student) of Informatics Engineering in 2025 and recipient of the Karya Salemba Empat (KSE) Excellence Program Scholarship. Two-time national analytics competition winner (3rd place) and two-time business funding awardee (P2MW, Unpadpreneur).`
   }
 };

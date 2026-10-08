@@ -8,7 +8,6 @@ import { awardsData } from '../../data/awardsData';
 import { organizationData } from '../../data/organizationData';
 import Modal from '../common/Modal';
 import './BentoDashboard.css';
-import cvPdf from '../../assets/pdf/Consulting CV - Danish Rahadian.pdf';
 import landingImage from '../../assets/img/landing.jpg';
 
 const BentoDashboard = () => {
@@ -66,23 +65,12 @@ const BentoDashboard = () => {
           </div>
         </motion.div>
 
-        {/* CV */}
-        <motion.a 
-          href={cvPdf} 
-          download="Danish_Rahadian_CV.pdf"
-          className="bento-card cv-card" 
-          variants={cardVariants}
-        >
-          <p className="card-label">RESUME</p>
-          <h3 className="card-title">Download CV</h3>
-        </motion.a>
-
         {/* About */}
         <motion.div className="bento-card about-card" variants={cardVariants}>
           <p className="card-label">ABOUT ME</p>
           <h3 className="card-title">Passionate about bridging business strategy with AI & Full-Stack Implementation.</h3>
           <p className="card-desc">
-            Informatics Engineering student at Padjadjaran University (GPA 3.96/4.00) with proven experience leading cross-functional teams, translating business requirements into delivery roadmaps, and managing end-to-end project lifecycles. Built and delivered multiple client-grade full-stack web applications and AI-integrated features from scratch to production. Comfortable operating at the intersection of business analysis, data-driven decision support, and structured project delivery.
+            Informatics Engineering student at Padjadjaran University (GPA 3.97/4.00) with proven experience leading cross-functional teams, translating business requirements into delivery roadmaps, and managing end-to-end project lifecycles. Built and delivered multiple client-grade full-stack web applications and AI-integrated features from scratch to production. Comfortable operating at the intersection of business analysis, data-driven decision support, and structured project delivery.
           </p>
         </motion.div>
 

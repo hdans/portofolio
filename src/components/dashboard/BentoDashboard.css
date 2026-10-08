@@ -36,8 +36,7 @@
 /* Base Spans */
 .intro-card { grid-column: span 2; grid-row: span 2; justify-content: center; }
 .photo-card { grid-column: span 1; grid-row: span 2; padding: 0; overflow: hidden; }
-.socials-card { grid-column: span 1; grid-row: span 1; }
-.cv-card { grid-column: span 1; grid-row: span 1; justify-content: center; align-items: center; cursor: pointer; text-decoration: none;}
+.socials-card { grid-column: span 1; grid-row: span 2; }
 
 /* Wide Content Cards (Extended Bento) */
 .about-card { grid-column: span 4; grid-row: span 1; justify-content: center; }
@@ -180,7 +179,6 @@
   .photo-card, 
   .about-card, 
   .stack-card, 
-  .cv-card, 
   .contact-card, 
   .project-card-horizontal {
     grid-column: span 1 !important;
